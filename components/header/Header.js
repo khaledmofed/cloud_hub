@@ -1,5 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
+import { useTranslation } from 'next-i18next';
+import { useRouter } from 'next/router';
 import icon1 from "/public/images/icons/icon_wifi.svg";
 import icon2 from "/public/images/icons/icon_dollar_2.svg";
 import icon3 from "/public/images/icons/icon_chart.svg";
@@ -14,9 +16,12 @@ import icon11 from "/public/images/icons/icon_quote.svg";
 import logo from "/public/images/site_logo/site_logo_3.svg";
 import cases from "/public/images/case/case_image_4.webp";
 import MobileMenu from "../MobileMenu/MobileMenu";
+import LanguageSwitcher from "../LanguageSwitcher/LanguageSwitcher";
 import Image from "next/image";
 
 const Header = (props) => {
+  const { t } = useTranslation('common');
+  const router = useRouter();
   const [mobailActive, setMobailState] = useState(false);
 
   const ClickHandler = () => {
@@ -47,10 +52,21 @@ const Header = (props) => {
       <div className="header_top text-center">
         <div className="container">
           <p className="m-0">
-            Subscribe us and receive <b>20% bonus</b> discount on checkout.{" "}
-            <Link onClick={ClickHandler} href="/pricing">
-              <u>Learn more</u> <i className="fa-solid fa-angle-right"></i>
-            </Link>
+            {router.locale === 'ar' ? (
+              <>
+                اشترك معنا واحصل على خصم <b>20%</b> عند الدفع.{' '}
+                <Link onClick={ClickHandler} href="/pricing">
+                  <u>{t('header.learnMore')}</u> <i className="fa-solid fa-angle-left"></i>
+                </Link>
+              </>
+            ) : (
+              <>
+                Subscribe us and receive <b>20% bonus</b> discount on checkout.{' '}
+                <Link onClick={ClickHandler} href="/pricing">
+                  <u>{t('header.learnMore')}</u> <i className="fa-solid fa-angle-right"></i>
+                </Link>
+              </>
+            )}
           </p>
         </div>
       </div>
@@ -70,7 +86,7 @@ const Header = (props) => {
                   />
                 </Link>
                 <div className="badge bg-danger-subtle text-danger">
-                  We’re Hiring
+                  {t('header.hiring')}
                 </div>
               </div>
             </div>
@@ -87,7 +103,7 @@ const Header = (props) => {
                         className="nav-link"
                         href="/"
                       >
-                        Home
+                        {t('nav.home')}
                       </Link>
                     </li>
                     <li>
@@ -96,7 +112,7 @@ const Header = (props) => {
                         className="nav-link"
                         href="/about"
                       >
-                        About Us
+                        {t('nav.about')}
                       </Link>
                     </li>
                     <li>
@@ -105,7 +121,7 @@ const Header = (props) => {
                         className="nav-link"
                         href="/portfolio"
                       >
-                        Portfolio
+                        {t('nav.portfolio')}
                       </Link>
                     </li>
                     <li className="dropdown">
@@ -118,7 +134,7 @@ const Header = (props) => {
                         data-bs-toggle="dropdown"
                         aria-expanded="false"
                       >
-                        Services
+                        {t('nav.services')}
                       </Link>
                       <div
                         className="dropdown-menu mega_menu_wrapper p-0"
@@ -131,7 +147,7 @@ const Header = (props) => {
                                 <div className="col-lg-4">
                                   <div className="megamenu_widget">
                                     <h3 className="megamenu_info_title">
-                                      Services
+                                      {t('nav.services')}
                                     </h3>
                                     <ul className="icon_list unordered_list_block">
                                       <li>
@@ -140,7 +156,7 @@ const Header = (props) => {
                                           href="/service-single/IT-Management-Services"
                                         >
                                           <span className="icon_list_text">
-                                            IT Management Services
+                                            {t('services.itManagement')}
                                           </span>
                                         </Link>
                                       </li>
@@ -150,7 +166,7 @@ const Header = (props) => {
                                           href="/service-single/Data-Tracking-and-Security"
                                         >
                                           <span className="icon_list_text">
-                                            Data Tracking Security
+                                            {t('services.dataTracking')}
                                           </span>
                                         </Link>
                                       </li>
@@ -160,7 +176,7 @@ const Header = (props) => {
                                           href="/service-single/IT-Management-Services"
                                         >
                                           <span className="icon_list_text">
-                                            Website Development
+                                            {t('services.websiteDev')}
                                           </span>
                                         </Link>
                                       </li>
@@ -170,7 +186,7 @@ const Header = (props) => {
                                           href="/service-single/IT-Management-Services"
                                         >
                                           <span className="icon_list_text">
-                                            CRM Solutions and Design
+                                            {t('services.crmSolutions')}
                                           </span>
                                         </Link>
                                       </li>
@@ -180,7 +196,7 @@ const Header = (props) => {
                                           href="/service-single/IT-Management-Services"
                                         >
                                           <span className="icon_list_text">
-                                            UI/UX Design Services
+                                            {t('services.uiuxDesign')}
                                           </span>
                                         </Link>
                                       </li>
@@ -190,7 +206,7 @@ const Header = (props) => {
                                           href="/service-single/IT-Management-Services"
                                         >
                                           <span className="icon_list_text">
-                                            Technology Solution
+                                            {t('services.technologySolution')}
                                           </span>
                                         </Link>
                                       </li>
@@ -200,7 +216,7 @@ const Header = (props) => {
                                           href="/service-single/IT-Management-Services"
                                         >
                                           <span className="icon_list_text">
-                                            Software Development
+                                            {t('services.softwareDev')}
                                           </span>
                                         </Link>
                                       </li>
@@ -419,12 +435,12 @@ const Header = (props) => {
                         className="nav-link"
                         href="/pricing"
                       >
-                        Pricing
+                        {t('nav.pricing')}
                       </Link>
                     </li>
                     <li>
                       <Link onClick={ClickHandler} href="/contact">
-                        Contact
+                        {t('nav.contact')}
                       </Link>
                     </li>
                   </ul>
@@ -447,13 +463,16 @@ const Header = (props) => {
                   </button>
                 </li>
                 <li>
+                  <LanguageSwitcher />
+                </li>
+                <li>
                   <Link
                     onClick={ClickHandler}
                     className="btn btn-outline-light"
                     href="/pricing"
                   >
-                    <span className="btn_label" data-text="Get Started">
-                      Get Started
+                    <span className="btn_label" data-text={t('nav.getStarted')}>
+                      {t('nav.getStarted')}
                     </span>
                     <span className="btn_icon">
                       <i className="fa-solid fa-arrow-up-right"></i>
@@ -482,6 +501,36 @@ const Header = (props) => {
           ></div>
         </div>
       </div>
+      <style jsx>{`
+        .desktop-language-switcher {
+          display: flex;
+          align-items: center;
+          margin-left: 20px;
+        }
+        .desktop-language-switcher :global(.language_switcher) {
+          position: relative;
+        }
+        .desktop-language-switcher :global(.language_switcher_btn) {
+          background: transparent;
+          border: 1px solid rgba(255, 255, 255, 0.2);
+          border-radius: 8px;
+          padding: 6px 12px;
+          color: var(--bs-dark);
+          cursor: pointer;
+          transition: all 0.3s ease;
+          font-size: 13px;
+          white-space: nowrap;
+        }
+        .desktop-language-switcher :global(.language_switcher_btn:hover) {
+          background: rgba(0, 0, 0, 0.05);
+          border-color: rgba(0, 0, 0, 0.2);
+        }
+        @media (max-width: 991px) {
+          .desktop-language-switcher {
+            display: none;
+          }
+        }
+      `}</style>
     </header>
   );
 };

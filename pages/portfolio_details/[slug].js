@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import Header from '../../components/header/Header';
 import Project from '../../api/project';
 import Link from "next/link";
@@ -188,4 +189,13 @@ const PortfolioSinglePage = (props) => {
         </Fragment>
     )
 };
+
+export async function getServerSideProps({ locale }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ['common'])),
+    },
+  };
+}
+
 export default PortfolioSinglePage;

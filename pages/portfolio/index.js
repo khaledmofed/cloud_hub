@@ -1,4 +1,5 @@
 import React, { Fragment, useState } from 'react';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import Project from '../../api/project';
 import Link from "next/link";
 import Header from '../../components/header/Header';
@@ -74,5 +75,13 @@ const PortfolioPage = (props) => {
         </Fragment>
     )
 };
+
+export async function getServerSideProps({ locale }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ['common'])),
+    },
+  };
+}
 
 export default PortfolioPage;

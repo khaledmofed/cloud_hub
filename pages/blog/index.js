@@ -1,4 +1,5 @@
 import React, { Fragment } from 'react';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import Header from '../../components/header/Header';
 import PageTitle from '../../components/pagetitle/PageTitle'
 import Scrollbar from '../../components/scrollbar/scrollbar'
@@ -22,4 +23,13 @@ const BlogPage = (props) => {
         </Fragment>
     )
 };
+
+export async function getServerSideProps({ locale }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ['common'])),
+    },
+  };
+}
+
 export default BlogPage;

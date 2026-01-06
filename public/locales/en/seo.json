@@ -1,0 +1,31 @@
+{
+  "home": {
+    "title": "Cloud Hub | Integrated IT & Cloud Solutions",
+    "description": "Cloud Hub is a comprehensive IT solutions platform delivering web and mobile development, cloud infrastructure, DevOps, systems engineering, hosting, and server management.",
+    "keywords": "IT solutions, cloud infrastructure, web development, mobile development, DevOps, systems engineering, hosting, server management"
+  },
+  "about": {
+    "title": "About Us | Cloud Hub - IT Solutions Provider",
+    "description": "Learn about Cloud Hub, your trusted partner for comprehensive IT solutions, cloud services, and technology consulting."
+  },
+  "portfolio": {
+    "title": "Our Portfolio | Cloud Hub Projects",
+    "description": "Explore our portfolio of successful IT projects, web applications, and cloud solutions delivered to clients worldwide."
+  },
+  "services": {
+    "title": "Our Services | Cloud Hub IT Solutions",
+    "description": "Discover our comprehensive range of IT services including web development, cloud infrastructure, DevOps, and system management."
+  },
+  "pricing": {
+    "title": "Pricing Plans | Cloud Hub",
+    "description": "Choose the perfect pricing plan for your business. Flexible IT solutions and cloud services tailored to your needs."
+  },
+  "contact": {
+    "title": "Contact Us | Cloud Hub",
+    "description": "Get in touch with Cloud Hub. We're here to help you with all your IT solutions and cloud service needs."
+  },
+  "siteName": "Cloud Hub",
+  "siteUrl": "https://cloudhub.com"
+}
+
+

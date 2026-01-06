@@ -1,4 +1,5 @@
 import React, { Fragment, useState } from 'react';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import Services from '../../api/service'
 import { useRouter } from 'next/router'
 import ModalVideo from 'react-modal-video'
@@ -136,4 +137,13 @@ const ServiceSinglePage = (props) => {
         </Fragment>
     )
 };
+
+export async function getServerSideProps({ locale }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ['common'])),
+    },
+  };
+}
+
 export default ServiceSinglePage;

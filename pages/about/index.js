@@ -1,4 +1,5 @@
 import React, { Fragment, useState } from 'react';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import Header from '../../components/header/Header';
 import PageTitle from '../../components/pagetitle/PageTitle'
 import Scrollbar from '../../components/scrollbar/scrollbar'
@@ -77,4 +78,13 @@ const AboutUsPage = (props) => {
         </Fragment>
     )
 };
+
+export async function getServerSideProps({ locale }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ['common'])),
+    },
+  };
+}
+
 export default AboutUsPage;

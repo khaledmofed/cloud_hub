@@ -1,4 +1,5 @@
 import React, { Fragment, useState } from 'react';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
 import Link from 'next/link'
 import Header from '../../components/header/Header';
 import PageTitle from '../../components/pagetitle/PageTitle'
@@ -224,4 +225,13 @@ const PricingPage = (props) => {
         </Fragment>
     )
 };
+
+export async function getServerSideProps({ locale }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ['common'])),
+    },
+  };
+}
+
 export default PricingPage;

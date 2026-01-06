@@ -1,0 +1,68 @@
+{
+  "nav": {
+    "home": "Home",
+    "about": "About Us",
+    "portfolio": "Portfolio",
+    "services": "Services",
+    "pricing": "Pricing",
+    "contact": "Contact",
+    "getStarted": "Get Started"
+  },
+  "header": {
+    "topBanner": "Subscribe us and receive <b>20% bonus</b> discount on checkout.",
+    "learnMore": "Learn more",
+    "hiring": "We're Hiring"
+  },
+  "services": {
+    "allServices": "All Services",
+    "itManagement": "IT Management Services",
+    "dataTracking": "Data Tracking Security",
+    "websiteDev": "Website Development",
+    "crmSolutions": "CRM Solutions and Design",
+    "uiuxDesign": "UI/UX Design Services",
+    "technologySolution": "Technology Solution",
+    "softwareDev": "Software Development"
+  },
+  "hero": {
+    "greeting": "👋 Hi We",
+    "badge": "Are Cloud Hub",
+    "title": "Grow your Business Organic & IT Solution Technology",
+    "description": "In today's competitive business, the demand for efficient and cost-effective IT solutions has never been more critical.",
+    "getStarted": "Get Started",
+    "rating": "4.8",
+    "reviews": "From <b>200+</b> reviews",
+    "worldwideClients": "150+",
+    "worldwideText": "Worldwide Country has lots of clients",
+    "dataSecurity": "Data Security",
+    "webDevelopment": "Web Development",
+    "analyticsOptimization": "Analytics & Optimization",
+    "cloudServices": "Cloud Services",
+    "itConsulting": "IT Consulting",
+    "businessGrowth": "get 88% of the best services and growth business",
+    "moreClients": "5k+"
+  },
+  "footer": {
+    "writeToUs": "Write to us",
+    "callUs": "Call Us (USA)",
+    "ourOffice": "Our Office",
+    "newsletter": "Newsletter",
+    "newsletterDesc": "Sign up to Cloud Hub weekly newsletter to get the latest updates.",
+    "enterEmail": "Enter your email",
+    "facebook": "Facebook",
+    "twitter": "Twitter",
+    "linkedin": "LinkedIn",
+    "services": "Services",
+    "company": "Company",
+    "support": "Support",
+    "quickLinks": "Quick Links",
+    "copyright": "© 2024 Cloud Hub. All rights reserved."
+  },
+  "common": {
+    "readMore": "Read More",
+    "learnMore": "Learn More",
+    "viewAll": "View All",
+    "contactUs": "Contact Us",
+    "getInTouch": "Get in Touch",
+    "language": "Language"
+  }
+}

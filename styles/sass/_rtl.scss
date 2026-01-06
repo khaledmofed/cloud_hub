@@ -1,0 +1,277 @@
+/* RTL Support for Arabic Language */
+
+[dir="rtl"] {
+  direction: rtl;
+  text-align: right;
+
+  /* CSS Variables - تطبيق خط Tajawal على كل الموقع */
+  --bs-body-font-family: "Tajawal", "Arial", sans-serif !important;
+  --bs-heading-font-family: "Tajawal", "Arial", sans-serif !important;
+  --bs-body-font-weight: 500 !important;
+
+  /* Typography - تطبيق خط Tajawal على كل العناصر */
+  // * {
+  //   font-family: "Tajawal", "Arial", sans-serif !important;
+  // }
+
+  body,
+  html,
+  p,
+  span,
+  div,
+  a,
+  button,
+  input,
+  textarea,
+  select,
+  label,
+  h1,
+  h2,
+  h3,
+  h4,
+  h5,
+  h6,
+  li,
+  td,
+  th,
+  .btn,
+  .nav-link,
+  .card,
+  .card-body,
+  .card-title,
+  .card-text,
+  .heading_text,
+  .heading_description,
+  .heading_focus_text,
+  .service_block,
+  .portfolio_block,
+  .testimonial_block,
+  .blog_block,
+  .team_block,
+  .footer_widget,
+  .main_menu_list,
+  .page_title,
+  .page_subtitle {
+    font-family: "Tajawal", "Arial", sans-serif !important;
+  }
+  .iconbox_block.layout_icon_left .iconbox_icon {
+    margin: 0 0px 0px 30px;
+  }
+  .portfolio_block .btn {
+    right: auto;
+    left: 30px;
+    position: absolute;
+  }
+  .it_solution_hero_images {
+    direction: ltr;
+  }
+
+  /* استثناء خطوط Font Awesome و Icons */
+  .fa,
+  .fas,
+  .far,
+  .fal,
+  .fab,
+  [class*="fa-"],
+  [class*="icon-"],
+  [class*="themify"],
+  i[class*="fa-"],
+  i[class*="icon-"],
+  .fa-solid,
+  .fa-regular,
+  .fa-light,
+  .fa-thin,
+  .fa-brands {
+    // font-family: var(--fa-style-family, "Font Awesome 6 Pro") !important;
+  }
+
+  /* Lists */
+  //   ul,
+  //   ol {
+  //     padding-right: 0;
+  //     padding-left: 20px;
+  //   }
+
+  /* Buttons */
+  .btn {
+    direction: rtl;
+  }
+
+  /* Navigation */
+  .main_menu_list {
+    direction: rtl;
+
+    li {
+      margin-right: 0;
+    }
+
+    > li > a {
+      font-weight: 600;
+      font-size: 16px;
+    }
+
+    .dropdown > a:after {
+      margin: 5px 3px 0 0px;
+    }
+  }
+
+  /* Header */
+  .header_btns_group {
+    direction: rtl;
+
+    li {
+      margin-right: 0;
+      margin-left: 15px;
+    }
+  }
+
+  .site_header .site_logo .badge {
+    margin-right: 5px;
+    margin-left: auto;
+    font-weight: 600;
+  }
+
+  /* Footer */
+  .footer_widget {
+    text-align: right;
+  }
+
+  /* Forms */
+  input,
+  textarea,
+  select {
+    text-align: right;
+    direction: rtl;
+  }
+
+  /* Icons */
+  .fa-angle-right::before {
+    content: "\f104"; // left arrow
+  }
+
+  .fa-angle-left::before {
+    content: "\f105"; // right arrow
+  }
+
+  .fa-arrow-up-right::before {
+    content: "\f104"; // left arrow for RTL
+  }
+
+  /* Dropdowns */
+  .dropdown-menu {
+    // right: auto;
+    // left: 0;
+    text-align: right;
+  }
+
+  /* Grid System */
+  .row {
+    direction: rtl;
+  }
+
+  /* Spacing utilities */
+  .ms-1,
+  .ms-2,
+  .ms-3,
+  .ms-4,
+  .ms-5 {
+    margin-left: 0 !important;
+    margin-right: 0.25rem !important;
+  }
+
+  .me-1,
+  .me-2,
+  .me-3,
+  .me-4,
+  .me-5 {
+    margin-right: 0 !important;
+    margin-left: 0.25rem !important;
+  }
+
+  .ps-1,
+  .ps-2,
+  .ps-3,
+  .ps-4,
+  .ps-5 {
+    padding-left: 0 !important;
+    padding-right: 0.25rem !important;
+  }
+
+  .pe-1,
+  .pe-2,
+  .pe-3,
+  .pe-4,
+  .pe-5 {
+    padding-right: 0 !important;
+    padding-left: 0.25rem !important;
+  }
+
+  /* Text alignment */
+  .text-start {
+    text-align: right !important;
+  }
+
+  .text-end {
+    text-align: left !important;
+  }
+
+  /* Flexbox */
+  //   .justify-content-start {
+  //     justify-content: flex-end !important;
+  //   }
+
+  //   .justify-content-end {
+  //     justify-content: flex-start !important;
+  //   }
+
+  /* Language Switcher */
+  //   .language_switcher_dropdown {
+  //     right: auto;
+  //     left: 0;
+  //   }
+
+  /* Mobile Menu */
+  //   .mobail-menu {
+  //     right: auto;
+  //     left: 0;
+  //   }
+
+  /* Hero Section */
+  .it_solution_hero_content {
+    text-align: right;
+  }
+
+  /* Service Cards */
+  .service_block {
+    text-align: right;
+  }
+
+  /* Portfolio */
+  .portfolio_block {
+    text-align: right;
+  }
+
+  /* Testimonials */
+  .testimonial_block {
+    text-align: right;
+  }
+
+  /* Contact Form */
+  .contact_form {
+    direction: rtl;
+    text-align: right;
+  }
+
+  /* Responsive adjustments for Arabic */
+  @media screen and (max-width: 1560px) {
+    .it_solution_hero_images .categories {
+      padding: 105px 20px;
+    }
+  }
+
+  @media screen and (max-width: 1440px) {
+    .it_solution_hero_content {
+      padding: 90px 80px 90px;
+    }
+  }
+}
