@@ -48,7 +48,7 @@
   "hero": {
     "greeting": "👋 Hi We",
     "badge": "Are Cloud Hub",
-    "title": "Grow your Business Organic & IT Solution Technology",
+    "title": "Business Growth & IT Solutions",
     "description": "In today's competitive business, the demand for efficient and cost-effective IT solutions has never been more critical.",
     "getStarted": "Get Started",
     "rating": "4.8",
@@ -61,7 +61,15 @@
     "cloudServices": "Cloud Services",
     "itConsulting": "IT Consulting",
     "businessGrowth": "get 88% of the best services and growth business",
-    "moreClients": "5k+"
+    "moreClients": "5k+",
+    "domainSearchTitle": "Every great website needs a great name.",
+    "domainSearchPlaceholder": "Search your Domain",
+    "domainSearch": "Search",
+    "domainChecking": "Checking domain availability...",
+    "domainAvailable": "is available!",
+    "domainNotAvailable": "is not available.",
+    "registerDomain": "Register Now",
+    "popularTLDs": "Popular TLDs"
   },
   "footer": {
     "writeToUs": "Write to us",

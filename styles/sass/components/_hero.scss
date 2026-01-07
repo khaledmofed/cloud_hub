@@ -14,7 +14,7 @@
 
 .it_solution_hero_content {
   background-size: auto;
-  padding: 132px 220px 133px;
+  padding: 120px 220px 120px;
   background-repeat: no-repeat;
   background-position: left center;
   background-color: var(--bs-light);
@@ -28,10 +28,13 @@
   p {
     font-size: 18px;
     line-height: 28px;
-    margin-bottom: 51px;
+    margin-bottom: 30px;
   }
 }
-
+li.domain_search_item {
+  width: 100%;
+  min-width: 100%;
+}
 .review_short_info {
   img {
     max-width: 128px;
@@ -469,6 +472,45 @@
   }
 }
 // Business Consulting - End
+
+// Domain Search TLDs - Start
+.popular_tlds {
+  .tld_list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    align-items: center;
+
+    .tld_item {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      transition: transform 0.2s ease;
+
+      &:hover {
+        transform: translateY(-2px);
+      }
+
+      .tld_ext {
+        font-size: 24px;
+        font-weight: 700;
+        line-height: 1.2;
+        margin-bottom: 8px;
+        font-family: "Axiforma Bold";
+        display: block;
+      }
+
+      .tld_price {
+        font-size: 14px;
+        color: #6c757d;
+        line-height: 1.2;
+        display: block;
+      }
+    }
+  }
+}
+// Domain Search TLDs - End
 
 /* 4.05 - Hero Sections - End
 ================================================== */

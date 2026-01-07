@@ -299,4 +299,68 @@
   .dir-ltr {
     direction: ltr;
   }
+
+  /* Domain Search TLDs - RTL Support */
+  .popular_tlds {
+    .tld_list {
+      // direction: ltr; // TLDs يجب أن تبقى من اليسار لليمين
+      justify-content: flex-start;
+
+      .tld_item {
+        .tld_ext,
+        .tld_price {
+          direction: ltr;
+          text-align: center;
+        }
+      }
+    }
+  }
+
+  /* Domain Search Section - RTL Support */
+  .domain_search_section {
+    .domain_search_form {
+      .input-group {
+        // direction: ltr; // حقل البحث يجب أن يكون LTR
+      }
+    }
+
+    .domain_search_results {
+      .alert {
+        direction: rtl;
+        text-align: right;
+
+        .d-flex {
+          flex-direction: row-reverse;
+        }
+      }
+    }
+  }
+
+  /* Input Group RTL Support */
+  .input-group
+    > :not(:first-child):not(.dropdown-menu):not(.valid-tooltip):not(
+      .valid-feedback
+    ):not(.invalid-tooltip):not(.invalid-feedback) {
+    margin-left: 0;
+    margin-right: -1px;
+    border-top-left-radius: 50px;
+    border-bottom-left-radius: 50px;
+    border-top-right-radius: 0;
+    border-bottom-right-radius: 0;
+  }
+
+  .input-group
+    > :not(:last-child):not(.dropdown-toggle):not(.dropdown-menu):not(
+      .valid-tooltip
+    ):not(.valid-feedback):not(.invalid-tooltip):not(.invalid-feedback) {
+    border-top-right-radius: 0.375rem;
+    border-bottom-right-radius: 0.375rem;
+    border-top-left-radius: 0;
+    border-bottom-left-radius: 0;
+  }
+
+  /* Hero Content H1 - RTL Support */
+  .it_solution_hero_content h1 {
+    line-height: 60px;
+  }
 }
