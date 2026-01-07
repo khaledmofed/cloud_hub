@@ -1,5 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useTranslation } from "next-i18next";
+import { useRouter } from "next/router";
 import Link from "next/link";
 import { Pagination, A11y } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
@@ -8,6 +9,7 @@ import Project from "../../api/project";
 
 const ProjectSection = () => {
   const { t } = useTranslation("common");
+  const router = useRouter();
   const [hydrated, setHydrated] = useState(false);
 
   useEffect(() => {
@@ -81,6 +83,7 @@ const ProjectSection = () => {
       </div>
       <div className="portfolio_carousel">
         <Swiper
+          key={router.locale}
           modules={[Pagination, A11y]}
           slidesPerView={1}
           loop={true}
@@ -90,6 +93,7 @@ const ProjectSection = () => {
           pagination={{ clickable: true }}
           speed={400}
           parallax={true}
+          dir={router.locale === "ar" ? "rtl" : "ltr"}
           breakpoints={{
             1025: {
               slidesPerView: 2,
