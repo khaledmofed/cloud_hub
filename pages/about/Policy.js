@@ -1,31 +1,32 @@
 import React from 'react';
+import { useTranslation } from 'next-i18next';
 import sIcon1 from '/public/images/icons/icon_clock.svg'
 import sIcon2 from '/public/images/icons/icon_dart_board_2.svg'
 import sIcon3 from '/public/images/icons/icon_target.svg'
 import Image from 'next/image';
 
-const Policy = [
+const getPolicy = (t) => [
     {
-        title: 'Our History',
-        subTitle: 'Since 1997 we have been a visionary and a reliable software engineering partner for world-class brands. abbreviated as co.',
+        title: t('aboutPage.ourHistory'),
+        subTitle: t('aboutPage.ourHistoryDesc'),
         icon: sIcon1,
     },
     {
-        title: 'Our Mission',
-        subTitle: 'A mission statement clarifies what the company wants to achieve, who they want to support, and why they want to support them. On the other hand',
+        title: t('aboutPage.ourMission'),
+        subTitle: t('aboutPage.ourMissionDesc'),
         icon: sIcon2,
     },
     {
-        title: 'Our Vision',
-        subTitle: 'A vision statement for a company or organization focuses on the potential inherent in the companys future; its about what they intend to be how you',
+        title: t('aboutPage.ourVision'),
+        subTitle: t('aboutPage.ourVisionDesc'),
         icon: sIcon3,
     },
-
-
 ]
 
 
 const PolicySection = (props) => {
+    const { t } = useTranslation('common');
+    const Policy = getPolicy(t);
 
     return (
         <section className="policy_section bg-light">
@@ -35,7 +36,7 @@ const PolicySection = (props) => {
                         <div className="col-lg-4" key={pitem}>
                             <div className="iconbox_block">
                                 <div className="iconbox_icon">
-                                    <Image src={policy.icon} alt="Dollar SVG Icon" />
+                                    <Image src={policy.icon} alt={t('aboutPage.iconAlt')} />
                                 </div>
                                 <div className="iconbox_content">
                                     <h3 className="iconbox_title">{policy.title}</h3>

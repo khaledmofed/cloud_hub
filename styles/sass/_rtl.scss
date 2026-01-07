@@ -34,6 +34,8 @@
   li,
   td,
   th,
+  b,
+  strong,
   .btn,
   .nav-link,
   .card,
@@ -51,7 +53,9 @@
   .footer_widget,
   .main_menu_list,
   .page_title,
-  .page_subtitle {
+  .page_subtitle,
+  .iconbox_block,
+  .iconbox_block .iconbox_title {
     font-family: "Tajawal", "Arial", sans-serif !important;
   }
   .iconbox_block.layout_icon_left .iconbox_icon {

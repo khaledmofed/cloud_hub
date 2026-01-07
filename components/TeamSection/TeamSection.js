@@ -1,4 +1,5 @@
 import React, { useEffect, useState } from 'react';
+import { useTranslation } from 'next-i18next';
 import Teams from '../../api/team'
 import Link from 'next/link'
 import { Swiper, SwiperSlide } from 'swiper/react';
@@ -12,7 +13,7 @@ import Image from 'next/image';
 
 
 const TeamSection = (props) => {
-
+    const { t } = useTranslation('common');
     const [hydrated, setHydrated] = useState(false);
 
     useEffect(() => {
@@ -35,11 +36,11 @@ const TeamSection = (props) => {
             <div className="container">
                 <div className="heading_block text-center">
                     <div className="heading_focus_text">
-                        <span className="badge bg-secondary text-white">Our Expert</span>
-                        Team Members 😍
+                        <span className="badge bg-secondary text-white">{t('teamSection.ourExpert')}</span>
+                        {t('teamSection.teamMembers')} 😍
                     </div>
                     <h2 className="heading_text mb-0">
-                        Top Skilled Experts
+                        {t('teamSection.topSkilledExperts')}
                     </h2>
                 </div>
 
@@ -106,7 +107,7 @@ const TeamSection = (props) => {
                 <div className="container">
                     <div className="btns_group pb-0">
                         <Link className="btn btn-outline-light" href="/team">
-                            <span className="btn_label" data-text="Our All Experts">Our All Experts</span>
+                            <span className="btn_label" data-text={t('teamSection.allExperts')}>{t('teamSection.allExperts')}</span>
                             <span className="btn_icon">
                                 <i className="fa-solid fa-arrow-up-right"></i>
                             </span>

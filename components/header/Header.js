@@ -122,7 +122,7 @@ const Header = (props) => {
                       <Link
                         onClick={ClickHandler}
                         className="nav-link"
-                        href="/"
+                        href="/service"
                         id="services_submenu"
                         role="button"
                         data-bs-toggle="dropdown"

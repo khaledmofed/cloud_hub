@@ -23,17 +23,58 @@ const PortfolioSinglePage = (props) => {
     // دالة لترجمة عنوان المشروع بناءً على slug
     const getProjectTitle = (slug) => {
         const titleMap = {
+            'Mobile-App-Design': t('portfolioItems.mobileAppDesign'),
+            'TOEFL-Coaching': t('portfolioItems.toeflCoaching'),
+            'Dashboard-Design': t('portfolioItems.dashboardDesign'),
+            'Astarte-Medical': t('portfolioItems.astarteMedical'),
+            'CAE-Blue-Phantom': t('portfolioItems.caeBluePhantom'),
+            'Liberkeys': t('portfolioItems.liberkeys'),
+            'Driving-Digital-Transformation-Explore-the-Depth-of-Our-IT Projects': t('portfolioItems.drivingDigital'),
+            'Explore-Our-IT-Solutions': t('portfolioItems.exploreSolutions'),
+            'Innovative-Solutions-Showcase-the-Diversity-of-Our-IT-Portfolio': t('portfolioItems.innovativeSolutions'),
+            'Tech-Triumphs-Celebrating-Our-Achievements-in-IT-Solutions': t('portfolioItems.techTriumphs'),
+            'Revolutionizing-IT-Strategies-A-Closer-Look-at-Our-Dynamic-IT-Solutions': t('portfolioItems.revolutionizing'),
             'Cloud-Migration-and-Integration-Project-IT-Solutions-Portfolio': t('portfolioItems.cloudMigration'),
+            'Pioneering-Progress-Exploring-the-Evolution-and-Impact-of': t('portfolioItems.pioneering'),
+            'Unlocking-Potential-Explore-Our-Comprehensive-IT-Portfolio': t('portfolioItems.unlocking'),
         };
-        return titleMap[slug] || slug;
+        return titleMap[slug] || (PortfolioDetails?.title || slug);
     };
 
     // دالة لترجمة thumbs بناءً على slug
     const getProjectThumb = (slug, thumbIndex) => {
         const thumbMap = {
+            'Driving-Digital-Transformation-Explore-the-Depth-of-Our-IT Projects': {
+                thumb1: t('portfolioItems.logoDesign'),
+                thumb2: t('portfolioItems.finance'),
+            },
+            'Explore-Our-IT-Solutions': {
+                thumb1: t('portfolioItems.appDesign'),
+                thumb2: t('portfolioItems.public'),
+            },
+            'Innovative-Solutions-Showcase-the-Diversity-of-Our-IT-Portfolio': {
+                thumb1: t('portfolioItems.cardDesign'),
+                thumb2: t('portfolioItems.transportation'),
+            },
+            'Tech-Triumphs-Celebrating-Our-Achievements-in-IT-Solutions': {
+                thumb1: t('portfolioItems.webDesign'),
+                thumb2: t('portfolioItems.logistic'),
+            },
+            'Revolutionizing-IT-Strategies-A-Closer-Look-at-Our-Dynamic-IT-Solutions': {
+                thumb1: t('portfolioItems.webDesign'),
+                thumb2: t('portfolioItems.fusion'),
+            },
             'Cloud-Migration-and-Integration-Project-IT-Solutions-Portfolio': {
                 thumb1: t('portfolioItems.webDesign'),
                 thumb2: t('portfolioItems.energy'),
+            },
+            'Pioneering-Progress-Exploring-the-Evolution-and-Impact-of': {
+                thumb1: t('portfolioItems.webDesign'),
+                thumb2: t('portfolioItems.health'),
+            },
+            'Unlocking-Potential-Explore-Our-Comprehensive-IT-Portfolio': {
+                thumb1: t('portfolioItems.webDesign'),
+                thumb2: t('portfolioItems.industry'),
             },
         };
         return thumbMap[slug]?.[thumbIndex] || '';
