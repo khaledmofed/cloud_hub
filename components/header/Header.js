@@ -1,7 +1,7 @@
 import React, { useState, useEffect } from "react";
 import Link from "next/link";
-import { useTranslation } from 'next-i18next';
-import { useRouter } from 'next/router';
+import { useTranslation } from "next-i18next";
+import { useRouter } from "next/router";
 import icon1 from "/public/images/icons/icon_wifi.svg";
 import icon2 from "/public/images/icons/icon_dollar_2.svg";
 import icon3 from "/public/images/icons/icon_chart.svg";
@@ -20,7 +20,7 @@ import LanguageSwitcher from "../LanguageSwitcher/LanguageSwitcher";
 import Image from "next/image";
 
 const Header = (props) => {
-  const { t } = useTranslation('common');
+  const { t } = useTranslation("common");
   const router = useRouter();
   const [mobailActive, setMobailState] = useState(false);
 
@@ -52,21 +52,15 @@ const Header = (props) => {
       <div className="header_top text-center">
         <div className="container">
           <p className="m-0">
-            {router.locale === 'ar' ? (
-              <>
-                اشترك معنا واحصل على خصم <b>20%</b> عند الدفع.{' '}
-                <Link onClick={ClickHandler} href="/pricing">
-                  <u>{t('header.learnMore')}</u> <i className="fa-solid fa-angle-left"></i>
-                </Link>
-              </>
-            ) : (
-              <>
-                Subscribe us and receive <b>20% bonus</b> discount on checkout.{' '}
-                <Link onClick={ClickHandler} href="/pricing">
-                  <u>{t('header.learnMore')}</u> <i className="fa-solid fa-angle-right"></i>
-                </Link>
-              </>
-            )}
+            <span dangerouslySetInnerHTML={{ __html: t("header.topBanner") }} />{" "}
+            <Link onClick={ClickHandler} href="/pricing">
+              <u>{t("header.learnMore")}</u>{" "}
+              <i
+                className={`fa-solid fa-angle-${
+                  router.locale === "ar" ? "left" : "right"
+                }`}
+              ></i>
+            </Link>
           </p>
         </div>
       </div>
@@ -86,7 +80,7 @@ const Header = (props) => {
                   />
                 </Link>
                 <div className="badge bg-danger-subtle text-danger">
-                  {t('header.hiring')}
+                  {t("header.hiring")}
                 </div>
               </div>
             </div>
@@ -103,7 +97,7 @@ const Header = (props) => {
                         className="nav-link"
                         href="/"
                       >
-                        {t('nav.home')}
+                        {t("nav.home")}
                       </Link>
                     </li>
                     <li>
@@ -112,7 +106,7 @@ const Header = (props) => {
                         className="nav-link"
                         href="/about"
                       >
-                        {t('nav.about')}
+                        {t("nav.about")}
                       </Link>
                     </li>
                     <li>
@@ -121,7 +115,7 @@ const Header = (props) => {
                         className="nav-link"
                         href="/portfolio"
                       >
-                        {t('nav.portfolio')}
+                        {t("nav.portfolio")}
                       </Link>
                     </li>
                     <li className="dropdown">
@@ -134,7 +128,7 @@ const Header = (props) => {
                         data-bs-toggle="dropdown"
                         aria-expanded="false"
                       >
-                        {t('nav.services')}
+                        {t("nav.services")}
                       </Link>
                       <div
                         className="dropdown-menu mega_menu_wrapper p-0"
@@ -147,7 +141,7 @@ const Header = (props) => {
                                 <div className="col-lg-4">
                                   <div className="megamenu_widget">
                                     <h3 className="megamenu_info_title">
-                                      {t('nav.services')}
+                                      {t("nav.services")}
                                     </h3>
                                     <ul className="icon_list unordered_list_block">
                                       <li>
@@ -156,7 +150,7 @@ const Header = (props) => {
                                           href="/service-single/IT-Management-Services"
                                         >
                                           <span className="icon_list_text">
-                                            {t('services.itManagement')}
+                                            {t("services.itManagement")}
                                           </span>
                                         </Link>
                                       </li>
@@ -166,7 +160,7 @@ const Header = (props) => {
                                           href="/service-single/Data-Tracking-and-Security"
                                         >
                                           <span className="icon_list_text">
-                                            {t('services.dataTracking')}
+                                            {t("services.dataTracking")}
                                           </span>
                                         </Link>
                                       </li>
@@ -176,7 +170,7 @@ const Header = (props) => {
                                           href="/service-single/IT-Management-Services"
                                         >
                                           <span className="icon_list_text">
-                                            {t('services.websiteDev')}
+                                            {t("services.websiteDev")}
                                           </span>
                                         </Link>
                                       </li>
@@ -186,7 +180,7 @@ const Header = (props) => {
                                           href="/service-single/IT-Management-Services"
                                         >
                                           <span className="icon_list_text">
-                                            {t('services.crmSolutions')}
+                                            {t("services.crmSolutions")}
                                           </span>
                                         </Link>
                                       </li>
@@ -196,7 +190,7 @@ const Header = (props) => {
                                           href="/service-single/IT-Management-Services"
                                         >
                                           <span className="icon_list_text">
-                                            {t('services.uiuxDesign')}
+                                            {t("services.uiuxDesign")}
                                           </span>
                                         </Link>
                                       </li>
@@ -206,7 +200,7 @@ const Header = (props) => {
                                           href="/service-single/IT-Management-Services"
                                         >
                                           <span className="icon_list_text">
-                                            {t('services.technologySolution')}
+                                            {t("services.technologySolution")}
                                           </span>
                                         </Link>
                                       </li>
@@ -216,7 +210,7 @@ const Header = (props) => {
                                           href="/service-single/IT-Management-Services"
                                         >
                                           <span className="icon_list_text">
-                                            {t('services.softwareDev')}
+                                            {t("services.softwareDev")}
                                           </span>
                                         </Link>
                                       </li>
@@ -226,7 +220,7 @@ const Header = (props) => {
                                 <div className="col-lg-4">
                                   <div className="megamenu_widget">
                                     <h3 className="megamenu_info_title">
-                                      Our Fields
+                                      {t("header.ourFields")}
                                     </h3>
                                     <ul className="icon_list unordered_list_block">
                                       <li>
@@ -235,7 +229,7 @@ const Header = (props) => {
                                           href="/service"
                                         >
                                           <span className="icon_list_text">
-                                            Healthcare
+                                            {t("header.healthcare")}
                                           </span>
                                         </Link>
                                       </li>
@@ -245,7 +239,7 @@ const Header = (props) => {
                                           href="/service"
                                         >
                                           <span className="icon_list_text">
-                                            Banks
+                                            {t("header.banks")}
                                           </span>
                                         </Link>
                                       </li>
@@ -255,7 +249,7 @@ const Header = (props) => {
                                           href="/service"
                                         >
                                           <span className="icon_list_text">
-                                            Logistics
+                                            {t("header.logistics")}
                                           </span>
                                         </Link>
                                       </li>
@@ -265,7 +259,7 @@ const Header = (props) => {
                                           href="/service"
                                         >
                                           <span className="icon_list_text">
-                                            Supermarkets
+                                            {t("header.supermarkets")}
                                           </span>
                                         </Link>
                                       </li>
@@ -275,7 +269,7 @@ const Header = (props) => {
                                           href="/service"
                                         >
                                           <span className="icon_list_text">
-                                            Industries
+                                            {t("header.industries")}
                                           </span>
                                         </Link>
                                       </li>
@@ -285,7 +279,7 @@ const Header = (props) => {
                                           href="/service"
                                         >
                                           <span className="icon_list_text">
-                                            Hotels
+                                            {t("header.hotels")}
                                           </span>
                                         </Link>
                                       </li>
@@ -295,7 +289,7 @@ const Header = (props) => {
                                           href="/service"
                                         >
                                           <span className="icon_list_text">
-                                            Fintech
+                                            {t("header.fintech")}
                                           </span>
                                         </Link>
                                       </li>
@@ -305,7 +299,7 @@ const Header = (props) => {
                                 <div className="col-lg-4">
                                   <div className="megamenu_widget">
                                     <h3 className="megamenu_info_title">
-                                      Product
+                                      {t("header.product")}
                                     </h3>
                                     <ul className="icon_list unordered_list_block">
                                       <li>
@@ -314,7 +308,7 @@ const Header = (props) => {
                                           href="/portfolio"
                                         >
                                           <span className="icon_list_text">
-                                            Case Studies
+                                            {t("header.caseStudies")}
                                           </span>
                                         </Link>
                                       </li>
@@ -324,7 +318,7 @@ const Header = (props) => {
                                           href="/pricing"
                                         >
                                           <span className="icon_list_text">
-                                            Our Pricing
+                                            {t("header.ourPricing")}
                                           </span>
                                         </Link>
                                       </li>
@@ -334,7 +328,7 @@ const Header = (props) => {
                                           href="/service"
                                         >
                                           <span className="icon_list_text">
-                                            Features
+                                            {t("header.features")}
                                           </span>
                                         </Link>
                                       </li>
@@ -344,14 +338,14 @@ const Header = (props) => {
                                           href="/about"
                                         >
                                           <span className="icon_list_text">
-                                            Overview
+                                            {t("header.overview")}
                                           </span>
                                         </Link>
                                       </li>
                                       <li>
                                         <Link onClick={ClickHandler} href="/">
                                           <span className="icon_list_text">
-                                            New Releases
+                                            {t("header.newReleases")}
                                           </span>
                                         </Link>
                                       </li>
@@ -361,7 +355,7 @@ const Header = (props) => {
                                           href="/service"
                                         >
                                           <span className="icon_list_text">
-                                            Solutions
+                                            {t("header.solutions")}
                                           </span>
                                         </Link>
                                       </li>
@@ -372,7 +366,7 @@ const Header = (props) => {
                               <div className="social_area">
                                 <ul
                                   className="social_icons_block unordered_list"
-                                  data-text="Follow Us:"
+                                  data-text={t("header.followUs")}
                                 >
                                   <li>
                                     <Link onClick={ClickHandler} href="/">
@@ -396,18 +390,18 @@ const Header = (props) => {
                                   </li>
                                 </ul>
                                 <p className="career_link m-0">
-                                  Looking for new career?{" "}
+                                  {t("header.lookingForCareer")}{" "}
                                   <Link onClick={ClickHandler} href="/">
-                                    We’re Hiring
+                                    {t("header.wereHiring")}
                                   </Link>
                                 </p>
                               </div>
                             </div>
                             <div className="col-lg-3">
                               <div className="megamenu_case bg-primary">
-                                <h3>Computer Software</h3>
-                                <h4>Astarte Medical</h4>
-                                <Image src={cases} alt="Case" />
+                                <h3>{t("header.computerSoftware")}</h3>
+                                <h4>{t("header.astarteMedical")}</h4>
+                                <Image src={cases} alt={t("header.case")} />
                                 <Link
                                   onClick={ClickHandler}
                                   className="btn"
@@ -415,9 +409,9 @@ const Header = (props) => {
                                 >
                                   <span
                                     className="btn_label"
-                                    data-text="Read Case"
+                                    data-text={t("header.readCase")}
                                   >
-                                    Read Case
+                                    {t("header.readCase")}
                                   </span>
                                   <span className="btn_icon">
                                     <i className="fa-solid fa-arrow-up-right"></i>
@@ -435,12 +429,12 @@ const Header = (props) => {
                         className="nav-link"
                         href="/pricing"
                       >
-                        {t('nav.pricing')}
+                        {t("nav.pricing")}
                       </Link>
                     </li>
                     <li>
                       <Link onClick={ClickHandler} href="/contact">
-                        {t('nav.contact')}
+                        {t("nav.contact")}
                       </Link>
                     </li>
                   </ul>
@@ -471,8 +465,8 @@ const Header = (props) => {
                     className="btn btn-outline-light"
                     href="/pricing"
                   >
-                    <span className="btn_label" data-text={t('nav.getStarted')}>
-                      {t('nav.getStarted')}
+                    <span className="btn_label" data-text={t("nav.getStarted")}>
+                      {t("nav.getStarted")}
                     </span>
                     <span className="btn_icon">
                       <i className="fa-solid fa-arrow-up-right"></i>
