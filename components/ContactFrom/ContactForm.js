@@ -1,7 +1,9 @@
 import React, { useState } from 'react'
+import { useTranslation } from 'next-i18next';
 import SimpleReactValidator from 'simple-react-validator';
 
 const ContactForm = (props) => {
+    const { t } = useTranslation('common');
 
     const [forms, setForms] = useState({
         name: '',
@@ -43,7 +45,7 @@ const ContactForm = (props) => {
             <div className="row">
                 <div className="col-md-6">
                     <div className="form-group">
-                        <label className="input_title" htmlFor="input_name">Full Name
+                        <label className="input_title" htmlFor="input_name">{t('contactPage.fullName')}
                         </label>
                         <input
                             value={forms.name}
@@ -52,13 +54,13 @@ const ContactForm = (props) => {
                             className="form-control"
                             onBlur={(e) => changeHandler(e)}
                             onChange={(e) => changeHandler(e)}
-                            placeholder="Goladria Gomez" />
+                            placeholder={t('contactPage.fullNamePlaceholder')} />
                         {validator.message('name', forms.name, 'required|alpha_space')}
                     </div>
                 </div>
                 <div className="col-md-6">
                     <div className="form-group">
-                        <label className="input_title" htmlFor="input_email">Your Email
+                        <label className="input_title" htmlFor="input_email">{t('contactPage.yourEmail')}
                         </label>
                         <input
                             value={forms.email}
@@ -67,13 +69,13 @@ const ContactForm = (props) => {
                             className="form-control"
                             onBlur={(e) => changeHandler(e)}
                             onChange={(e) => changeHandler(e)}
-                            placeholder="CloudHub@example.com" />
+                            placeholder={t('contactPage.emailPlaceholder')} />
                         {validator.message('email', forms.email, 'required|email')}
                     </div>
                 </div>
                 <div className="col-12">
                     <div className="form-group">
-                        <label className="input_title" htmlFor="input_phone">Your Phone</label>
+                        <label className="input_title" htmlFor="input_phone">{t('contactPage.yourPhone')}</label>
                         <input
                             value={forms.phone}
                             type="phone"
@@ -81,13 +83,13 @@ const ContactForm = (props) => {
                             className="form-control"
                             onBlur={(e) => changeHandler(e)}
                             onChange={(e) => changeHandler(e)}
-                            placeholder="+8250-3560 6565" />
+                            placeholder={t('contactPage.phonePlaceholder')} />
                         {validator.message('phone', forms.phone, 'required|phone')}
                     </div>
                 </div>
                 <div className="col-12">
                     <div className="form-group">
-                        <label className="input_title" htmlFor="input_textarea">Message</label>
+                        <label className="input_title" htmlFor="input_textarea">{t('contactPage.message')}</label>
                         <textarea
                             onBlur={(e) => changeHandler(e)}
                             onChange={(e) => changeHandler(e)}
@@ -95,12 +97,12 @@ const ContactForm = (props) => {
                             type="text"
                             name="message"
                             className="form-control"
-                            placeholder="How can we help you?">
+                            placeholder={t('contactPage.messagePlaceholder')}>
                         </textarea>
                         {validator.message('message', forms.message, 'required')}
                     </div>
                     <button type="submit" className="btn btn-primary">
-                        <span className="btn_label" data-text="Send Message">Send Message</span>
+                        <span className="btn_label" data-text={t('contactPage.sendMessage')}>{t('contactPage.sendMessage')}</span>
                         <span className="btn_icon">
                             <i className="fa-solid fa-arrow-up-right"></i>
                         </span>

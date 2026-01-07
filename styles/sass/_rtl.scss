@@ -280,4 +280,20 @@
       padding: 90px 80px 90px;
     }
   }
+
+  /* Pricing Block */
+  .pricing_block .pricing_price_value sub {
+    font-family: "Tajawal", "Arial", sans-serif !important;
+    font-weight: 500 !important;
+  }
+
+  span.pricing_annually {
+    direction: ltr;
+    display: block;
+  }
+
+  /* Direction LTR for specific elements */
+  .dir-ltr {
+    direction: ltr;
+  }
 }
