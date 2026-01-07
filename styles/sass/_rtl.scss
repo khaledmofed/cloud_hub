@@ -266,7 +266,10 @@
     text-align: right;
   }
   .it_solution_hero_images .categories {
-    padding: 104px 20px;
+    padding: 104px 42px;
+  }
+  .unordered_list_block > li {
+    text-align: left;
   }
   /* Responsive adjustments for Arabic */
   @media screen and (max-width: 1560px) {
