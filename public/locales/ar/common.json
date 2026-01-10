@@ -146,7 +146,8 @@
     "plugins": "الإضافات",
     "solution": "الحل",
     "website": "الموقع",
-    "mobileApp": "تطبيق الجوال"
+    "mobileApp": "تطبيق الجوال",
+    "customSoftware": "تطوير البرمجيات المخصصة"
   },
   "projects": {
     "crafting": "صياغة",

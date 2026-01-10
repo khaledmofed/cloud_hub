@@ -146,7 +146,8 @@
     "plugins": "Plugins",
     "solution": "Solution",
     "website": "Website",
-    "mobileApp": "Mobile App"
+    "mobileApp": "Mobile App",
+    "customSoftware": "Custom Software Development"
   },
   "projects": {
     "crafting": "Crafting",

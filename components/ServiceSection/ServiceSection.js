@@ -18,6 +18,7 @@ const ServiceSection = (props) => {
       "Website-Development": t("serviceItems.websiteDev"),
       "Modern-Technology-Solution": t("serviceItems.modernTech"),
       "UI-UX-Design-Services": t("serviceItems.uiuxDesign"),
+      "Custom Software Development": t("serviceItems.customSoftware"),
     };
     return titleMap[slug] || slug;
   };

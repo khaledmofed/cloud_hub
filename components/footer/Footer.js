@@ -27,6 +27,7 @@ const Footer = (props) => {
       "Website-Development": t("serviceItems.websiteDev"),
       "Modern-Technology-Solution": t("serviceItems.modernTech"),
       "UI-UX-Design-Services": t("serviceItems.uiuxDesign"),
+      "Custom Software Development": t("serviceItems.customSoftware"),
     };
     return titleMap[slug] || slug;
   };
@@ -70,10 +71,10 @@ const Footer = (props) => {
             <div className="row justify-content-lg-between">
               <div className="col-lg-3 col-md-6 col-sm-6">
                 <div className="footer_widget pe-md-3">
-                  <h2 className="footer_info_title">{t("footer.newsletter")}</h2>
-                  <p>
-                    {t("footer.newsletterDesc")}
-                  </p>
+                  <h2 className="footer_info_title">
+                    {t("footer.newsletter")}
+                  </h2>
+                  <p>{t("footer.newsletterDesc")}</p>
                   <form className="footer_newslatter" onSubmit={SubmitHandler}>
                     <label htmlFor="footer_mail_input">
                       <Image src={icon4} alt="Mail SVG Icon" />
@@ -133,21 +134,29 @@ const Footer = (props) => {
               </div>
               <div className="col-lg-2 col-md-6 col-sm-6">
                 <div className="footer_widget">
-                  <h3 className="footer_info_title">{t("footer.information")}</h3>
+                  <h3 className="footer_info_title">
+                    {t("footer.information")}
+                  </h3>
                   <ul className="icon_list unordered_list_block">
                     <li>
                       <Link onClick={ClickHandler} href="/about">
-                        <span className="icon_list_text">{t("footer.aboutCloudHub")}</span>
+                        <span className="icon_list_text">
+                          {t("footer.aboutCloudHub")}
+                        </span>
                       </Link>
                     </li>
                     <li>
                       <Link onClick={ClickHandler} href="/service">
-                        <span className="icon_list_text">{t("footer.investors")}</span>
+                        <span className="icon_list_text">
+                          {t("footer.investors")}
+                        </span>
                       </Link>
                     </li>
                     <li>
                       <Link onClick={ClickHandler} href="/contact">
-                        <span className="icon_list_text">{t("footer.contact")}</span>
+                        <span className="icon_list_text">
+                          {t("footer.contact")}
+                        </span>
                       </Link>
                     </li>
                     <li>
@@ -159,12 +168,16 @@ const Footer = (props) => {
                     </li>
                     <li>
                       <Link onClick={ClickHandler} href="/portfolio">
-                        <span className="icon_list_text">{t("footer.career")}</span>
+                        <span className="icon_list_text">
+                          {t("footer.career")}
+                        </span>
                       </Link>
                     </li>
                     <li>
                       <Link onClick={ClickHandler} href="/pricing">
-                        <span className="icon_list_text">{t("footer.pricingPlan")}</span>
+                        <span className="icon_list_text">
+                          {t("footer.pricingPlan")}
+                        </span>
                       </Link>
                     </li>
                   </ul>
@@ -176,32 +189,44 @@ const Footer = (props) => {
                   <ul className="icon_list unordered_list_block">
                     <li>
                       <Link onClick={ClickHandler} href="/portfolio">
-                        <span className="icon_list_text">{t("footer.caseStudies")}</span>
+                        <span className="icon_list_text">
+                          {t("footer.caseStudies")}
+                        </span>
                       </Link>
                     </li>
                     <li>
                       <Link onClick={ClickHandler} href="/pricing">
-                        <span className="icon_list_text">{t("footer.ourPricing")}</span>
+                        <span className="icon_list_text">
+                          {t("footer.ourPricing")}
+                        </span>
                       </Link>
                     </li>
                     <li>
                       <Link onClick={ClickHandler} href="/service">
-                        <span className="icon_list_text">{t("footer.features")}</span>
+                        <span className="icon_list_text">
+                          {t("footer.features")}
+                        </span>
                       </Link>
                     </li>
                     <li>
                       <Link onClick={ClickHandler} href="/about">
-                        <span className="icon_list_text">{t("footer.overview")}</span>
+                        <span className="icon_list_text">
+                          {t("footer.overview")}
+                        </span>
                       </Link>
                     </li>
                     <li>
                       <Link onClick={ClickHandler} href="/blog">
-                        <span className="icon_list_text">{t("footer.newReleases")}</span>
+                        <span className="icon_list_text">
+                          {t("footer.newReleases")}
+                        </span>
                       </Link>
                     </li>
                     <li>
                       <Link onClick={ClickHandler} href="/pricing">
-                        <span className="icon_list_text">{t("footer.solutions")}</span>
+                        <span className="icon_list_text">
+                          {t("footer.solutions")}
+                        </span>
                       </Link>
                     </li>
                   </ul>
@@ -213,12 +238,8 @@ const Footer = (props) => {
       </div>
       <div className="footer_bottom">
         <div className="container d-md-flex align-items-md-center justify-content-md-between">
-          <p className="copyright_text m-0">
-            {t("footer.copyright")}
-          </p>
-          <p className="copyright_text m-0">
-            {t("footer.tagline")}
-          </p>
+          <p className="copyright_text m-0">{t("footer.copyright")}</p>
+          <p className="copyright_text m-0">{t("footer.tagline")}</p>
         </div>
       </div>
     </footer>

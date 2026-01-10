@@ -9,6 +9,8 @@ import About from "../components/about/about";
 import PolicySection from "../components/PolicySection/PolicySection";
 import ServiceSection from "../components/ServiceSection/ServiceSection";
 import ProjectSection from "../components/ProjectSection/ProjectSection";
+import PricingSection from "../components/PricingSection/PricingSection";
+import PartnerSectionWrapper from "../components/PartnerSectionWrapper/PartnerSectionWrapper";
 import Testimonial from "../components/Testimonial/Testimonial";
 import TeamSection from "../components/TeamSection/TeamSection";
 import BlogSection from "../components/BlogSection/BlogSection";
@@ -65,11 +67,14 @@ const HomePage = () => {
         <Header />
         <main className="page_content">
           <Hero />
-          <FeaturesSection />
+          <PricingSection />
+          <PartnerSectionWrapper />
+          {/* <FeaturesSection /> */}
           <About />
           <PolicySection />
           <ServiceSection />
           <ProjectSection />
+
           {/* <Testimonial /> */}
           {/* <TeamSection /> */}
           {/* <BlogSection /> */}

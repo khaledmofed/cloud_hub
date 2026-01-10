@@ -186,7 +186,7 @@ const Hero = () => {
 
                     {/* Popular TLDs */}
                     <div className="popular_tlds mt-3">
-                      <ul className="tld_list unordered_list d-flex flex-wrap gap-3 mb-0">
+                      <ul className="tld_list unordered_list d-flex flex-wrap gap-4 mb-0">
                         {[
                           { ext: ".com", price: "$12.95", color: "#4A90E2" },
                           { ext: ".info", price: "$2.55", color: "#E74C3C" },
