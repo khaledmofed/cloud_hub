@@ -1,11 +1,20 @@
-import pImg1 from "/public/images/portfolio/event-master.jpg";
-import pImg2 from "/public/images/portfolio/mcti.jpeg";
-import pImg3 from "/public/images/portfolio/zero-academy.jpg";
-import pImg33 from "/public/images/portfolio/strawberry.jpg";
-import pImg333 from "/public/images/portfolio/afamiacar.jpg";
-import pImg4 from "/public/images/case/case_image_1.webp";
-import pImg5 from "/public/images/case/case_image_2.webp";
-import pImg6 from "/public/images/case/case_image_3.webp";
+import afamiacar from "/public/images/portfolio/afamiacars.jpeg";
+import akaratistanbul from "/public/images/portfolio/akaratistanbul.jpeg";
+import metachain from "/public/images/portfolio/metachain.jpeg";
+import zerodayacadimay from "/public/images/portfolio/zerodayacadimay.jpeg";
+import strawbarry from "/public/images/portfolio/strawbarry.jpeg";
+import futureai from "/public/images/portfolio/futureai.jpeg";
+import famizo from "/public/images/portfolio/famizo.jpeg";
+import eventsmaster from "/public/images/portfolio/eventsmaster.jpeg";
+import proton from "/public/images/portfolio/proton.jpeg";
+import swag from "/public/images/portfolio/swag.jpeg";
+import eklil from "/public/images/portfolio/eklil.jpeg";
+import brinkiry from "/public/images/portfolio/brinkiry.jpeg";
+import trinity from "/public/images/portfolio/trinity.jpeg";
+import hala from "/public/images/portfolio/hala.jpeg";
+import swan from "/public/images/portfolio/swan.jpeg";
+import acceleum from "/public/images/portfolio/acceleum.jpeg";
+import mokafaat from "/public/images/portfolio/mokafaat.jpeg";
 
 import pImg7 from "/public/images/portfolio/portfolio_item_image_4.webp";
 import pImg8 from "/public/images/portfolio/portfolio_item_image_5.webp";
@@ -25,64 +34,71 @@ import tImg5 from "/public/images/case/icon_python.svg";
 const Project = [
   {
     Id: "1",
-    pImg: pImg1,
-    title: "Mobile App Design",
-    slug: "Mobile-App-Design",
-    sub: "App Design",
+    pImg: akaratistanbul,
+    title_en: "Akarat Istanbul",
+    title_ar: "عقارات اسطنبول",
+    slug: "https://akaratistanbul.net/",
+    // sub: "App Design",
     description:
       "Our all-encompassing IELTS Coaching curriculum encompasses every aspect...",
   },
   {
     Id: "2",
-    pImg: pImg2,
-    title: "TOEFL Coaching",
-    slug: "TOEFL-Coaching",
+    pImg: metachain,
+    title_en: "Metachain",
+    title_ar: "ميتاتشين",
+    slug: "https://mcti.io/",
     sub: "",
     description:
       "Our experienced coaches are not just educators; they are partners in your journey..",
   },
   {
     Id: "3",
-    pImg: pImg3,
-    title: "Dashboard Design",
-    slug: "Dashboard-Design",
-    sub: "Web Design",
+    pImg: zerodayacadimay,
+    title_en: "Zeroday Acadimay",
+    title_ar: "زيروداي اكاديمي",
+    slug: "https://zeroday.ivadso.com/",
+    // sub: "Web Design",
     description:
       "The contents of the citizenship test typically cover a range of subjects ...",
   },
   {
     Id: "4",
-    pImg: pImg33,
-    title: "Mobile App Design",
-    slug: "Mobile-App-Design",
-    sub: "App Design",
+    pImg: strawbarry,
+    title_en: "Strawberry Garden",
+    title_ar: "حديقة الفراولة ",
+    slug: "https://strawgardenom.com/",
+    // sub: "App Design",
     description:
       "Our all-encompassing IELTS Coaching curriculum encompasses every aspect...",
   },
   {
     Id: "5",
-    pImg: pImg333,
-    title: "TOEFL Coaching",
-    slug: "TOEFL-Coaching",
-    sub: "",
+    pImg: afamiacar,
+    title_en: "Afamiacar",
+    title_ar: "أفامياكار",
+    slug: "https://afamiacar.de/",
+    // sub: "",
     description:
       "Our experienced coaches are not just educators; they are partners in your journey..",
   },
   {
     Id: "6",
-    pImg: pImg3,
-    title: "Dashboard Design",
-    slug: "Dashboard-Design",
-    sub: "Web Design",
+    pImg: futureai,
+    title_en: "Future AI",
+    title_ar: "المستقبل الذكي",
+    slug: "https://futureai-six.vercel.app/",
+    // sub: "Web Design",
     description:
       "The contents of the citizenship test typically cover a range of subjects ...",
   },
   {
     Id: "7",
-    pImg: pImg4,
-    title: "Astarte Medical",
-    slug: "Astarte-Medical",
-    sub: "Computer Software",
+    pImg: famizo,
+    title_en: "Famizo",
+    title_ar: "فاميزو",
+    slug: "https://famizo.com/",
+    // sub: "Computer Software",
     Industry: "Computer software",
     Country: "Germany, Issum",
     Technologies1: tImg1,
@@ -92,10 +108,11 @@ const Project = [
   },
   {
     Id: "8",
-    pImg: pImg5,
-    title: "CAE Blue Phantom",
-    slug: "CAE-Blue-Phantom",
-    sub: "Healthcare",
+    pImg: eventsmaster,
+    title_en: "Event Masters",
+    title_ar: "ايفنت ماستر",
+    slug: "https://www.eventmasters.co/",
+    // sub: "Healthcare",
     Industry: "Wellness & Fitness",
     Country: "Canada, Alberta",
     Technologies1: tImg1,
@@ -105,10 +122,11 @@ const Project = [
   },
   {
     Id: "9",
-    pImg: pImg6,
-    title: "Liberkeys",
-    slug: "Liberkeys",
-    sub: "Real Estate",
+    pImg: proton,
+    title_en: "Saudi Proton Therapy Center",
+    title_ar: "المركز السعودي للعلاج بالبروتون",
+    slug: "https://sptc.med.sa/",
+    // sub: "Real Estate",
     Industry: "Real estate",
     Country: "France, Paris",
     Technologies1: tImg4,
@@ -118,74 +136,80 @@ const Project = [
   },
   {
     Id: "10",
-    pImg: pImg7,
-    title:
-      "Driving Digital Transformation Explore the Depth of Our IT Projects",
-    slug: "Driving-Digital-Transformation-Explore-the-Depth-of-Our-IT Projects",
+    pImg: swag,
+    title_en: "Swag Gold",
+    title_ar: "مجوهرات سواج",
+    slug: "https://swaggold.co/",
     thumb1: "Logo Design",
     thumb2: "Finance",
     category: "technology",
   },
   {
-    Id: "17",
-    pImg: pImg8,
-    title: "Explore Our IT Solutions Portfolio for Public Sector Organizations",
-    slug: "Explore-Our-IT-Solutions",
+    Id: "11",
+    pImg: eklil,
+    title_en: "Rosemary",
+    title_ar: "إكليل الجبل",
+    slug: "https://rosemary-eta.vercel.app/",
     thumb1: "App Design",
     thumb2: "Public",
     category: "helpdesk",
   },
   {
-    Id: "18",
-    pImg: pImg9,
-    title: "Innovative Solutions Showcase the Diversity of Our IT Portfolio",
-    slug: "Innovative-Solutions-Showcase-the-Diversity-of-Our-IT-Portfolio",
+    Id: "12",
+    pImg: brinkiry,
+    title_en: "brinkera",
+    title_ar: "برينكيرا",
+    slug: "https://brinkera.com/",
     thumb1: "Card Design",
     thumb2: "Transpiration",
     category: "analysis",
   },
   {
-    Id: "19",
-    pImg: pImg10,
-    title: "Tech Triumphs Celebrating Our Achievements in IT Solutions",
-    slug: "Tech-Triumphs-Celebrating-Our-Achievements-in-IT-Solutions",
+    Id: "13",
+    pImg: trinity,
+    title_en: "Trinity",
+    title_ar: "ترينيتي",
+    slug: "https://trinity-one-tau.vercel.app/",
     thumb1: "Web Design",
     thumb2: "Logistic",
     category: "technology",
   },
   {
-    Id: "20",
-    pImg: pImg11,
-    title:
-      "Revolutionizing IT Strategies A Closer Look at Our Dynamic IT Solutions",
-    slug: "Revolutionizing-IT-Strategies-A-Closer-Look-at-Our-Dynamic-IT-Solutions",
+    Id: "14",
+    pImg: hala,
+    title_en: "Hala Wonen",
+    title_ar: "حلاوونين",
+    slug: "https://halawonen.nl/",
     thumb1: "Web Design",
     thumb2: "Fution",
     category: "analysis",
   },
   {
-    Id: "21",
-    pImg: pImg12,
-    title: "Cloud Migration and Integration Project IT Solutions Portfolio",
-    slug: "Cloud-Migration-and-Integration-Project-IT-Solutions-Portfolio",
+    Id: "15",
+    pImg: swan,
+    title_en: "Swan Specialized Medical Center",
+    title_ar: "مجمع سوان التخصصي الطبي",
+    slug: "https://swanclinic.sa/",
     thumb1: "Web Design",
     thumb2: "Energy",
     category: "helpdesk",
   },
   {
-    Id: "22",
-    pImg: pImg13,
-    title: "Pioneering Progress Exploring the Evolution and Impact of",
-    slug: "Pioneering-Progress-Exploring-the-Evolution-and-Impact-of",
+    Id: "16",
+    pImg: acceleum,
+    title_en: "Acceleum",
+    title_ar: "اكسيليوم",
+    slug: "https://acceleum.com/",
     thumb1: "Web Design",
     thumb2: "Health",
     category: "marketing",
   },
   {
-    Id: "23",
-    pImg: pImg14,
-    title: "Unlocking Potential Explore Our Comprehensive IT Portfolio",
-    slug: "Unlocking-Potential-Explore-Our-Comprehensive-IT-Portfolio",
+    Id: "17",
+    pImg: mokafaat,
+    title_en: "Mukafaat",
+    title_ar: "مكافآت",
+    slug: "https://mokafaat.vercel.app/",
     thumb1: "Web Design",
     thumb2: "Industry",
     category: "technology",

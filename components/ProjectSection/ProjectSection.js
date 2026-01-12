@@ -24,8 +24,25 @@ const ProjectSection = () => {
     window.scrollTo(10, 0);
   };
 
-  // دالة لترجمة عنوان المشروع بناءً على slug
-  const getProjectTitle = (slug) => {
+  // دالة للحصول على عنوان المشروع بناءً على اللغة
+  const getProjectTitle = (project) => {
+    if (!project) return "";
+    if (router.locale === "ar") {
+      return (
+        project.title_ar ||
+        project.title_en ||
+        getProjectTitleBySlug(project.slug)
+      );
+    }
+    return (
+      project.title_en ||
+      project.title_ar ||
+      getProjectTitleBySlug(project.slug)
+    );
+  };
+
+  // دالة لترجمة عنوان المشروع بناءً على slug (fallback)
+  const getProjectTitleBySlug = (slug) => {
     const titleMap = {
       "Mobile-App-Design": t("portfolioItems.mobileAppDesign"),
       "TOEFL-Coaching": t("portfolioItems.toeflCoaching"),
@@ -35,17 +52,17 @@ const ProjectSection = () => {
   };
 
   // دالة لترجمة sub بناءً على slug
-  const getProjectSub = (slug) => {
+  const getProjectSub = (project) => {
+    if (!project || !project.slug) return "";
     const subMap = {
       "Mobile-App-Design": t("portfolioItems.appDesign"),
       "TOEFL-Coaching": "",
       "Dashboard-Design": t("portfolioItems.webDesign"),
     };
-    return subMap[slug] || "";
+    return subMap[project.slug] || project.sub || "";
   };
 
-  const displayedProjects =
-    Project && Project.length > 0 ? Project.slice(0, 5) : [];
+  const displayedProjects = Project && Project.length > 0 ? Project : [];
 
   return (
     <section className="portfolio_section xb-hidden section_space">
@@ -57,7 +74,7 @@ const ProjectSection = () => {
                 <span className="badge bg-secondary text-white">
                   {t("projects.crafting")}
                 </span>
-                {t("projects.successWith")} 😍 {t("projects.project")}
+                {t("projects.successWith")} {t("projects.project")} 😍
               </div>
               <h2 className="heading_text">{t("projects.recentBestWorks")}</h2>
               <p className="heading_description mb-0">
@@ -107,12 +124,13 @@ const ProjectSection = () => {
                   <Link
                     onClick={ClickHandler}
                     className="portfolio_image_wrap bg-light"
-                    href={"/portfolio_details/[slug]"}
-                    as={`/portfolio_details/${project.slug}`}
+                    href={project.slug}
+                    target="_blank"
+                    // as={`/portfolio_details/${project.slug}`}
                   >
                     <Image
                       src={project.pImg}
-                      alt={project.title}
+                      alt={getProjectTitle(project)}
                       fill
                       style={{ objectFit: "cover" }}
                     />
@@ -122,30 +140,36 @@ const ProjectSection = () => {
                   <h3 className="portfolio_title">
                     <Link
                       onClick={ClickHandler}
-                      href={"/portfolio_details/[slug]"}
-                      as={`/portfolio_details/${project.slug}`}
+                      // href={"/portfolio_details/[slug]"}
+                      // as={`/portfolio_details/${project.slug}`}
+                      href={project.slug}
+                      target="_blank"
                     >
-                      {getProjectTitle(project.slug)}
+                      {getProjectTitle(project)}
                     </Link>
                   </h3>
                   <ul className="category_list unordered_list">
-                    {getProjectSub(project.slug) && (
+                    {getProjectSub(project) && (
                       <li>
                         <Link
-                          onClick={ClickHandler}
-                          href={"/portfolio_details/[slug]"}
-                          as={`/portfolio_details/${project.slug}`}
+                          // onClick={ClickHandler}
+                          // href={"/portfolio_details/[slug]"}
+                          // as={`/portfolio_details/${project.slug}`}
+                          href={project.slug}
+                          target="_blank"
                         >
-                          {getProjectSub(project.slug)}
+                          {getProjectSub(project)}
                         </Link>
                       </li>
                     )}
                   </ul>
                   <Link
-                    onClick={ClickHandler}
+                    // onClick={ClickHandler}
                     className="btn btn-outline-light"
-                    href={"/portfolio_details/[slug]"}
-                    as={`/portfolio_details/${project.slug}`}
+                    // href={"/portfolio_details/[slug]"}
+                    // as={`/portfolio_details/${project.slug}`}
+                    href={project.slug}
+                    target="_blank"
                   >
                     <span
                       className="btn_label"

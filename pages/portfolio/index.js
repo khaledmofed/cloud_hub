@@ -1,6 +1,7 @@
 import React, { Fragment, useState } from "react";
 import { serverSideTranslations } from "next-i18next/serverSideTranslations";
 import { useTranslation } from "next-i18next";
+import { useRouter } from "next/router";
 import Project from "../../api/project";
 import Link from "next/link";
 import Header from "../../components/header/Header";
@@ -12,6 +13,7 @@ import Image from "next/image";
 
 const PortfolioPage = (props) => {
   const { t } = useTranslation("common");
+  const router = useRouter();
   const [activeFilter, setActiveFilter] = useState("all");
 
   const ClickHandler = () => {
@@ -22,8 +24,17 @@ const PortfolioPage = (props) => {
     setActiveFilter(filter);
   };
 
-  // دالة لترجمة عنوان المشروع بناءً على slug
-  const getProjectTitle = (slug) => {
+  // دالة للحصول على عنوان المشروع بناءً على اللغة
+  const getProjectTitle = (project) => {
+    if (!project) return '';
+    if (router.locale === "ar") {
+      return project.title_ar || project.title_en || getProjectTitleBySlug(project.slug);
+    }
+    return project.title_en || project.title_ar || getProjectTitleBySlug(project.slug);
+  };
+
+  // دالة لترجمة عنوان المشروع بناءً على slug (fallback)
+  const getProjectTitleBySlug = (slug) => {
     const titleMap = {
       "Driving-Digital-Transformation-Explore-the-Depth-of-Our-IT Projects": t(
         "portfolioItems.drivingDigital"
@@ -155,7 +166,7 @@ const PortfolioPage = (props) => {
                       >
                         <Image
                           src={project.pImg}
-                          alt={getProjectTitle(project.slug)}
+                          alt={getProjectTitle(project)}
                         />
                       </Link>
                     </div>
@@ -166,7 +177,7 @@ const PortfolioPage = (props) => {
                           href={"/portfolio_details/[slug]"}
                           as={`/portfolio_details/${project.slug}`}
                         >
-                          {getProjectTitle(project.slug)}
+                          {getProjectTitle(project)}
                         </Link>
                       </h3>
                       <ul className="category_list unordered_list">

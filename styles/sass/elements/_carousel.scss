@@ -3,20 +3,24 @@
 
 // Pagination - Start
 .swiper-pagination-bullets {
-	display: flex;
-	position: static;
-	padding: 60px 0 0;
-	justify-content: center;
+  display: flex;
+  position: static;
+  padding: 60px 0 0;
+  justify-content: center;
 
-	.swiper-pagination-bullet {
-		width: 10px;
-		height: 10px;
-		&.swiper-pagination-bullet-active {
-			background-color: var(--bs-primary);
-		}
-	}
+  .swiper-pagination-bullet {
+    width: 10px;
+    height: 10px;
+    &.swiper-pagination-bullet-active {
+      background-color: var(--bs-primary);
+    }
+  }
 }
 // Pagination - End
+
+.swiper-pointer-events {
+  padding-top: 2px;
+}
 
 /* 2.08 - Carousel or Slider - End
 ================================================== */

@@ -1,4 +1,6 @@
 import React from 'react';
+import { useTranslation } from 'next-i18next';
+import { useRouter } from 'next/router';
 import Link from 'next/link'
 import Project from '../../../api/project'
 import about1 from '/public/images/about/about_image_6.webp'
@@ -12,10 +14,21 @@ import Image from 'next/image';
 
 
 const About = (props) => {
+  const { t } = useTranslation('common');
+  const router = useRouter();
 
   const ClickHandler = () => {
     window.scrollTo(10, 0);
   }
+
+  // دالة للحصول على عنوان المشروع بناءً على اللغة
+  const getProjectTitle = (project) => {
+    if (!project) return '';
+    if (router.locale === "ar") {
+      return project.title_ar || project.title_en || project.title || '';
+    }
+    return project.title_en || project.title_ar || project.title || '';
+  };
 
   return (
     <section className="about_and_case_section section_space section_decoration bg-dark" style={{ backgroundImage: `url(${'/images/backgrounds/bg_image_2.webp'})` }}>
@@ -115,7 +128,9 @@ const About = (props) => {
                     <li><a href="portfolio.html">{project.sub}</a></li>
                   </ul>
                   <h3 className="case_title">
-                    <Link onClick={ClickHandler} href={'/portfolio_details/[slug]'} as={`/portfolio_details/${project.slug}`}>{project.title}</Link>
+                    <Link onClick={ClickHandler} href={'/portfolio_details/[slug]'} as={`/portfolio_details/${project.slug}`}>
+                      {getProjectTitle(project)}
+                    </Link>
                   </h3>
                   <p>
                     {project.description}
