@@ -15,6 +15,13 @@ import hala from "/public/images/portfolio/hala.jpeg";
 import swan from "/public/images/portfolio/swan.jpeg";
 import acceleum from "/public/images/portfolio/acceleum.jpeg";
 import mokafaat from "/public/images/portfolio/mokafaat.jpeg";
+import speak from "/public/images/portfolio/speak.jpeg";
+import training from "/public/images/portfolio/training.png";
+import jordanapp from "/public/images/portfolio/jordan-app.jpeg";
+import dopa from "/public/images/portfolio/dopa.jpeg";
+import coaches from "/public/images/portfolio/yacotch.jpeg";
+import eventmasters from "/public/images/portfolio/event-master.jpeg";
+import nuss from "/public/images/portfolio/nuss.jpeg";
 
 import pImg7 from "/public/images/portfolio/portfolio_item_image_4.webp";
 import pImg8 from "/public/images/portfolio/portfolio_item_image_5.webp";
@@ -213,6 +220,62 @@ const Project = [
     thumb1: "Web Design",
     thumb2: "Industry",
     category: "technology",
+  },
+  {
+    Id: "18",
+    pImg: speak,
+    title_en: "Speak",
+    title_ar: "سبيك",
+    slug: "#",
+    category: "app",
+  },
+  {
+    Id: "19",
+    pImg: training,
+    title_en: "Training",
+    title_ar: "تدريب",
+    slug: "#",
+    category: "app",
+  },
+  {
+    Id: "20",
+    pImg: jordanapp,
+    title_en: "Jordan Motor",
+    title_ar: "سوق سيارات الأردن",
+    slug: "https://apps.apple.com/eg/app/jordan-motor-%D8%B3%D9%88%D9%82-%D8%B3%D9%8A%D8%A7%D8%B1%D8%A7%D8%AA-%D8%A7%D9%84%D8%A7%D8%B1%D8%AF%D9%86/id1669232983",
+    category: "app",
+  },
+  {
+    Id: "21",
+    pImg: dopa,
+    title_en: "Dopa",
+    title_ar: "دوبا",
+    slug: "https://apps.apple.com/eg/app/dopa-travel/id6444405642",
+    category: "app",
+  },
+  {
+    Id: "22",
+    pImg: coaches,
+    title_en: "Yacotch",
+    title_ar: "ياكوتش",
+    slug: "https://apps.apple.com/eg/app/yacotch/id6473735732",
+    category: "app",
+  },
+  {
+    Id: "23",
+    pImg: eventmasters,
+    title_en: "Event Masters",
+    title_ar: "إيفنت ماستر",
+    slug: "https://apps.apple.com/eg/app/event-masters/id6529560283",
+    category: "app",
+  },
+  {
+    Id: "24",
+    pImg: nuss,
+    title_en: "Nuss | Poetry and Poetry Platform",
+    title_ar: "نص | منصة الأدب والشعر",
+    slug: "https://apps.apple.com/eg/app/%D9%86%D8%B5-nuss-%D9%85%D9%86%D8%B5%D8%A9-%D8%A7%D9%84%D8%A3%D8%AF%D8%A8-%D9%88%D8%A7%D9%84%D8%B4%D8%B9%D8%B1/id1597328954",
+    category: "app",
   },
 ];
 

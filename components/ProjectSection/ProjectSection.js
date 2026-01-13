@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useTranslation } from "next-i18next";
 import { useRouter } from "next/router";
 import Link from "next/link";
-import { Pagination, A11y } from "swiper";
+import { Pagination, A11y, Autoplay } from "swiper";
 import { Swiper, SwiperSlide } from "swiper/react";
 import Image from "next/image";
 import Project from "../../api/project";
@@ -64,6 +64,9 @@ const ProjectSection = () => {
 
   const displayedProjects = Project && Project.length > 0 ? Project : [];
 
+  // المشاريع الستة الأخيرة للعرض في grid
+  const gridProjects = displayedProjects.slice(-7);
+
   return (
     <section className="portfolio_section xb-hidden section_space">
       <div className="container">
@@ -101,7 +104,7 @@ const ProjectSection = () => {
       <div className="portfolio_carousel">
         <Swiper
           key={router.locale}
-          modules={[Pagination, A11y]}
+          modules={[Pagination, A11y, Autoplay]}
           slidesPerView={1}
           loop={true}
           spaceBetween={30}
@@ -110,6 +113,10 @@ const ProjectSection = () => {
           pagination={{ clickable: true }}
           speed={400}
           parallax={true}
+          autoplay={{
+            delay: 3000,
+            disableOnInteraction: false,
+          }}
           dir={router.locale === "ar" ? "rtl" : "ltr"}
           breakpoints={{
             1025: {
@@ -186,6 +193,28 @@ const ProjectSection = () => {
             </SwiperSlide>
           ))}
         </Swiper>
+      </div>
+      <div className="container text-center d-block mt-5">
+        <div className="row portfolio_carousel_home">
+          {gridProjects.map((project) => (
+            <div key={project.Id} className="col-lg-6 col-md-6 col-sm-6">
+              <div className="details_item_image m-0">
+                <Link
+                  onClick={ClickHandler}
+                  href={project.slug}
+                  target={project.slug !== "#" ? "_blank" : undefined}
+                >
+                  <Image
+                    src={project.pImg}
+                    alt={getProjectTitle(project)}
+                    fill
+                    style={{ objectFit: "cover" }}
+                  />
+                </Link>
+              </div>
+            </div>
+          ))}
+        </div>
       </div>
       <div className="container text-center d-block d-lg-none">
         <div className="btns_group pb-0">
