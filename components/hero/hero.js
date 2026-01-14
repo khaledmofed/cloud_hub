@@ -191,8 +191,8 @@ const Hero = () => {
                           { ext: ".com", price: "$12.95", color: "#4A90E2" },
                           { ext: ".info", price: "$2.55", color: "#E74C3C" },
                           { ext: ".org", price: "$2.32", color: "#2ECC71" },
-                          { ext: ".biz", price: "$1.9", color: "#9B59B6" },
-                          { ext: ".xyz", price: "$0.99", color: "#F1C40F" },
+                          { ext: ".net", price: "$1.9", color: "#9B59B6" },
+                          { ext: ".sa", price: "$0.99", color: "#F1C40F" },
                         ].map((tld, index) => (
                           <li key={index}>
                             <div
@@ -274,19 +274,19 @@ const Hero = () => {
               <li>
                 <ul className="categories unordered_list_block">
                   <li>
-                    <Link href="/">
+                    <Link href="/service">
                       <span>{t("hero.dataSecurity")}</span>
                       <i className="fa-solid fa-plus"></i>
                     </Link>
                   </li>
                   <li>
-                    <Link href="/">
+                    <Link href="/service">
                       <i className="fa-solid fa-plus"></i>
                       <span>{t("hero.webDevelopment")}</span>
                     </Link>
                   </li>
                   <li>
-                    <Link href="/">
+                    <Link href="/service">
                       <span>{t("hero.analyticsOptimization")}</span>
                       <i className="fa-solid fa-plus"></i>
                     </Link>
