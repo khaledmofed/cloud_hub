@@ -196,9 +196,13 @@ const ProjectSection = () => {
       </div>
       <div className="container text-center d-block mt-5">
         <div className="row portfolio_carousel_home">
-          {gridProjects.map((project) => (
+          {gridProjects.map((project, index) => (
             <div key={project.Id} className="col-lg-6 col-md-6 col-sm-6">
-              <div className="details_item_image m-0">
+              <div
+                className={`details_item_image m-0 ${
+                  index < 2 ? "first-two-items" : ""
+                }`}
+              >
                 <Link
                   onClick={ClickHandler}
                   href={project.slug}

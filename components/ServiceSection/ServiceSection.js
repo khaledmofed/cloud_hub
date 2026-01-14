@@ -13,9 +13,13 @@ const ServiceSection = (props) => {
   // دالة لترجمة عنوان الخدمة بناءً على slug
   const getServiceTitle = (slug) => {
     const titleMap = {
+      "Hosting-and-Domains-Services": t("serviceItems.hostingDomains"),
+      "Digital-Transformation": t("serviceItems.digitalTransformation"),
+      "Website-Development": t("serviceItems.websiteDev"),
+      "Cybersecurity-Services": t("serviceItems.cybersecurity"),
+      "Mobile-App-Development": t("serviceItems.mobileAppDev"),
       "IT-Management-Services": t("serviceItems.itManagement"),
       "Data-Tracking-and-Security": t("serviceItems.dataTracking"),
-      "Website-Development": t("serviceItems.websiteDev"),
       "Modern-Technology-Solution": t("serviceItems.modernTech"),
       "UI-UX-Design-Services": t("serviceItems.uiuxDesign"),
       "Custom Software Development": t("serviceItems.customSoftware"),
@@ -26,6 +30,26 @@ const ServiceSection = (props) => {
   // دالة لترجمة thumbs بناءً على slug و thumb index
   const getServiceThumb = (slug, thumbIndex) => {
     const thumbMap = {
+      "Hosting-and-Domains-Services": {
+        thumb1: t("serviceItems.hosting"),
+        thumb2: t("serviceItems.domains"),
+      },
+      "Website-Development": {
+        thumb1: t("serviceItems.ecommerce"),
+        thumb2: t("serviceItems.customSystems"),
+      },
+      "Mobile-App-Development": {
+        thumb1: t("serviceItems.ios"),
+        thumb2: t("serviceItems.android"),
+      },
+      "Digital-Transformation": {
+        thumb1: t("serviceItems.erpSystems"),
+        thumb2: t("serviceItems.automation"),
+      },
+      "Cybersecurity-Services": {
+        thumb1: t("serviceItems.protection"),
+        thumb2: t("serviceItems.monitoring"),
+      },
       "IT-Management-Services": {
         thumb1: t("serviceItems.strategy"),
         thumb2: t("serviceItems.consultation"),
@@ -33,10 +57,6 @@ const ServiceSection = (props) => {
       "Data-Tracking-and-Security": {
         thumb1: t("serviceItems.management"),
         thumb2: t("serviceItems.transfer"),
-      },
-      "Website-Development": {
-        thumb1: t("serviceItems.landingPage"),
-        thumb2: t("serviceItems.plugins"),
       },
       "Modern-Technology-Solution": {
         thumb1: t("serviceItems.consultation"),
@@ -126,7 +146,7 @@ const ServiceSection = (props) => {
           ))}
         </div>
 
-        <div className="btns_group pb-0">
+        {/* <div className="btns_group pb-0">
           <Link
             onClick={ClickHandler}
             className="btn btn-outline-light"
@@ -142,7 +162,7 @@ const ServiceSection = (props) => {
               <i className="fa-solid fa-arrow-up-right"></i>
             </span>
           </Link>
-        </div>
+        </div> */}
       </div>
     </section>
   );

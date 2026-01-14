@@ -39,14 +39,14 @@ const AboutUsPage = (props) => {
                 <div className="col-lg-4">
                   <div className="image_wrap position-relative">
                     <Image src={aImg2} alt={t("aboutPage.aboutImageAlt")} />
-                    <button
+                    {/* <button
                       className="video_btn ripple_effect"
                       onClick={() => setOpen(true)}
                     >
                       <span className="btn_icon">
                         <i className="fa-solid fa-play"></i>
                       </span>
-                    </button>
+                    </button> */}
                   </div>
                 </div>
               </div>
@@ -76,8 +76,8 @@ const AboutUsPage = (props) => {
           </div>
         </section>
         <PolicySection />
-        <FeaturesSection />
-        <TeamSection />
+        {/* <FeaturesSection /> */}
+        {/* <TeamSection /> */}
         <WhyUs />
         <CtaSection />
       </main>

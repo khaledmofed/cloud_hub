@@ -118,7 +118,9 @@ const Header = (props) => {
                         {t("nav.portfolio")}
                       </Link>
                     </li>
-                    <li className="dropdown">
+                    <li
+                    // className="dropdown"
+                    >
                       <Link
                         onClick={ClickHandler}
                         className="nav-link"
@@ -130,7 +132,7 @@ const Header = (props) => {
                       >
                         {t("nav.services")}
                       </Link>
-                      <div
+                      {/* <div
                         className="dropdown-menu mega_menu_wrapper p-0"
                         aria-labelledby="services_submenu"
                       >
@@ -421,7 +423,7 @@ const Header = (props) => {
                             </div>
                           </div>
                         </div>
-                      </div>
+                      </div> */}
                     </li>
                     <li>
                       <Link

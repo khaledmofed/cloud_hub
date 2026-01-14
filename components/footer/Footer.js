@@ -1,11 +1,18 @@
 import React from "react";
 import { useTranslation } from "next-i18next";
+import { useRouter } from "next/router";
 import Link from "next/link";
 import icon1 from "/public/images/icons/icon_mail.svg";
 import icon2 from "/public/images/icons/icon_calling.svg";
-import icon3 from "/public/images/icons/icon_map_mark.svg";
 import icon4 from "/public/images/icons/icon_mail_2.svg";
+import logo from "/public/images/site_logo/site_logo_3.svg";
+import paypalIcon from "/public/images/payment-icon/paypal.svg";
+import stcIcon from "/public/images/payment-icon/stc-icon.svg";
+import mastercardIcon from "/public/images/payment-icon/master-icon.svg";
+import visaIcon from "/public/images/payment-icon/visa-icon.svg";
+import madaIcon from "/public/images/payment-icon/mada-icon.svg";
 import Services from "../../api/service";
+import WhatsAppButton from "../WhatsAppButton/WhatsAppButton";
 import Image from "next/image";
 
 const ClickHandler = () => {
@@ -18,6 +25,7 @@ const SubmitHandler = (e) => {
 
 const Footer = (props) => {
   const { t } = useTranslation("common");
+  const router = useRouter();
 
   // دالة لترجمة عنوان الخدمة بناءً على slug
   const getServiceTitle = (slug) => {
@@ -45,7 +53,20 @@ const Footer = (props) => {
               </div>
               <div className="iconbox_content">
                 <h3 className="iconbox_title">{t("footer.writeToUs")}</h3>
-                <p className="mb-0">CloudHub@gmail.com</p>
+                <p className="mb-0">
+                  <Link
+                    href="mailto:info@ch.sa"
+                    style={{
+                      color: "inherit",
+                      textDecoration: "none",
+                      transition: "opacity 0.3s ease",
+                    }}
+                    onMouseEnter={(e) => (e.target.style.opacity = "0.8")}
+                    onMouseLeave={(e) => (e.target.style.opacity = "1")}
+                  >
+                    info@ch.sa
+                  </Link>
+                </p>
               </div>
             </div>
             <div className="iconbox_block layout_icon_left">
@@ -54,182 +75,121 @@ const Footer = (props) => {
               </div>
               <div className="iconbox_content">
                 <h3 className="iconbox_title">{t("footer.callUs")}</h3>
-                <p className="mb-0">+(1) 1230 452 8597</p>
+                <p className="mb-0 dir-ltr">+(966) 59 955 5526</p>
               </div>
             </div>
             <div className="iconbox_block layout_icon_left">
               <div className="iconbox_icon">
-                <Image src={icon3} alt="Map Mark Check SVG Icon" />
+                <i className="fa-brands fa-whatsapp"></i>
               </div>
               <div className="iconbox_content">
-                <h3 className="iconbox_title">{t("footer.ourOffice")}</h3>
-                <p className="mb-0">Waterloo, Park, Australia</p>
+                <h3 className="iconbox_title">
+                  {t("footer.contactViaWhatsapp")}
+                </h3>
+                <p className="mb-0 dir-ltr">
+                  <Link
+                    href={`https://wa.me/966599555526?text=${encodeURIComponent(
+                      t("footer.whatsappMessage")
+                    )}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    style={{
+                      color: "inherit",
+                      textDecoration: "none",
+                      transition: "opacity 0.3s ease",
+                    }}
+                    onMouseEnter={(e) => (e.target.style.opacity = "0.8")}
+                    onMouseLeave={(e) => (e.target.style.opacity = "1")}
+                  >
+                    +966 59 955 5526
+                  </Link>
+                </p>
               </div>
             </div>
           </div>
           <div className="footer_main_content">
             <div className="row justify-content-lg-between">
-              <div className="col-lg-3 col-md-6 col-sm-6">
-                <div className="footer_widget pe-md-3">
-                  <h2 className="footer_info_title">
-                    {t("footer.newsletter")}
-                  </h2>
-                  <p>{t("footer.newsletterDesc")}</p>
-                  <form className="footer_newslatter" onSubmit={SubmitHandler}>
-                    <label htmlFor="footer_mail_input">
-                      <Image src={icon4} alt="Mail SVG Icon" />
-                    </label>
-                    <input
-                      id="footer_mail_input"
-                      type="email"
-                      name="email"
-                      placeholder={t("footer.enterEmail")}
+              {/* القسم الأيمن - اللوجو والوصف والمنيو */}
+              <div className="col-lg-6 col-md-12">
+                <div className="footer_widget">
+                  <Link
+                    onClick={ClickHandler}
+                    className="site_logo mb-4 d-inline-block"
+                    href="/"
+                  >
+                    <Image
+                      src={logo}
+                      alt="Cloud Hub Logo"
+                      width={150}
+                      height={50}
+                      style={{ filter: "brightness(0) invert(1)" }}
                     />
-                    <button type="submit">
-                      <i className="fa-solid fa-paper-plane"></i>
-                    </button>
-                  </form>
-                  <ul className="social_links_block unordered_list">
-                    <li>
-                      <Link onClick={ClickHandler} href="/">
-                        {t("footer.facebook")}
-                      </Link>
-                    </li>
-                    <li>
-                      <Link onClick={ClickHandler} href="/">
-                        {t("footer.twitter")}
-                      </Link>
-                    </li>
-                    <li>
-                      <Link onClick={ClickHandler} href="/">
-                        {t("footer.linkedin")}
-                      </Link>
-                    </li>
-                  </ul>
+                  </Link>
+                  <p className="mb-4">{t("footer.companyDescription")}</p>
                 </div>
               </div>
-              <div className="col-lg-3 col-md-6 col-sm-6">
+              {/* القسم الأيسر - طرق الدفع */}
+              <div className="col-lg-6 col-md-12">
                 <div className="footer_widget">
-                  <h3 className="footer_info_title">{t("footer.services")}</h3>
-                  <ul className="icon_list unordered_list_block">
-                    {Services.slice(0, 6).map((service, srv) => (
-                      <li key={srv}>
-                        {service.title ? (
-                          <Link
-                            onClick={ClickHandler}
-                            href={"/service-single/[slug]"}
-                            as={`/service-single/${service.slug}`}
-                          >
-                            <span className="icon_list_text">
-                              {getServiceTitle(service.slug)}
-                            </span>
-                          </Link>
-                        ) : (
-                          ""
-                        )}
-                      </li>
-                    ))}
-                  </ul>
-                </div>
-              </div>
-              <div className="col-lg-2 col-md-6 col-sm-6">
-                <div className="footer_widget">
-                  <h3 className="footer_info_title">
-                    {t("footer.information")}
+                  <h3
+                    className="footer_info_title mb-5 mt-2"
+                    style={{ textAlign: "end" }}
+                  >
+                    {t("footer.acceptedPaymentMethods")}
                   </h3>
-                  <ul className="icon_list unordered_list_block">
-                    <li>
-                      <Link onClick={ClickHandler} href="/about">
-                        <span className="icon_list_text">
-                          {t("footer.aboutCloudHub")}
-                        </span>
-                      </Link>
-                    </li>
-                    <li>
-                      <Link onClick={ClickHandler} href="/service">
-                        <span className="icon_list_text">
-                          {t("footer.investors")}
-                        </span>
-                      </Link>
-                    </li>
-                    <li>
-                      <Link onClick={ClickHandler} href="/contact">
-                        <span className="icon_list_text">
-                          {t("footer.contact")}
-                        </span>
-                      </Link>
-                    </li>
-                    <li>
-                      <Link onClick={ClickHandler} href="/about">
-                        <span className="icon_list_text">
-                          {t("footer.affiliateProgram")}
-                        </span>
-                      </Link>
-                    </li>
-                    <li>
-                      <Link onClick={ClickHandler} href="/portfolio">
-                        <span className="icon_list_text">
-                          {t("footer.career")}
-                        </span>
-                      </Link>
-                    </li>
-                    <li>
-                      <Link onClick={ClickHandler} href="/pricing">
-                        <span className="icon_list_text">
-                          {t("footer.pricingPlan")}
-                        </span>
-                      </Link>
-                    </li>
-                  </ul>
-                </div>
-              </div>
-              <div className="col-lg-2 col-md-6 col-sm-6">
-                <div className="footer_widget">
-                  <h3 className="footer_info_title">{t("footer.product")}</h3>
-                  <ul className="icon_list unordered_list_block">
-                    <li>
-                      <Link onClick={ClickHandler} href="/portfolio">
-                        <span className="icon_list_text">
-                          {t("footer.caseStudies")}
-                        </span>
-                      </Link>
-                    </li>
-                    <li>
-                      <Link onClick={ClickHandler} href="/pricing">
-                        <span className="icon_list_text">
-                          {t("footer.ourPricing")}
-                        </span>
-                      </Link>
-                    </li>
-                    <li>
-                      <Link onClick={ClickHandler} href="/service">
-                        <span className="icon_list_text">
-                          {t("footer.features")}
-                        </span>
-                      </Link>
-                    </li>
-                    <li>
-                      <Link onClick={ClickHandler} href="/about">
-                        <span className="icon_list_text">
-                          {t("footer.overview")}
-                        </span>
-                      </Link>
-                    </li>
-                    <li>
-                      <Link onClick={ClickHandler} href="/blog">
-                        <span className="icon_list_text">
-                          {t("footer.newReleases")}
-                        </span>
-                      </Link>
-                    </li>
-                    <li>
-                      <Link onClick={ClickHandler} href="/pricing">
-                        <span className="icon_list_text">
-                          {t("footer.solutions")}
-                        </span>
-                      </Link>
-                    </li>
-                  </ul>
+                  <div
+                    className="payment_methods d-flex flex-wrap gap-2 align-items-center"
+                    style={{
+                      textAlign: "end",
+                      direction: router.locale === "ar" ? "ltr" : "rtl",
+                    }}
+                  >
+                    <div className="payment_method_item  d-flex align-items-center justify-content-center">
+                      <Image
+                        src={paypalIcon}
+                        alt="PayPal"
+                        width={80}
+                        height={30}
+                        style={{ objectFit: "contain" }}
+                      />
+                    </div>
+                    <div className="payment_method_item   d-flex align-items-center justify-content-center">
+                      <Image
+                        src={stcIcon}
+                        alt="STC Bank"
+                        width={80}
+                        height={30}
+                        style={{ objectFit: "contain" }}
+                      />
+                    </div>
+                    <div className="payment_method_item  d-flex align-items-center justify-content-center">
+                      <Image
+                        src={mastercardIcon}
+                        alt="Mastercard"
+                        width={80}
+                        height={30}
+                        style={{ objectFit: "contain" }}
+                      />
+                    </div>
+                    <div className="payment_method_item  d-flex align-items-center justify-content-center">
+                      <Image
+                        src={visaIcon}
+                        alt="VISA"
+                        width={80}
+                        height={30}
+                        style={{ objectFit: "contain" }}
+                      />
+                    </div>
+                    <div className="payment_method_item   d-flex align-items-center justify-content-center">
+                      <Image
+                        src={madaIcon}
+                        alt="Mada"
+                        width={80}
+                        height={30}
+                        style={{ objectFit: "contain" }}
+                      />
+                    </div>
+                  </div>
                 </div>
               </div>
             </div>
@@ -242,6 +202,7 @@ const Footer = (props) => {
           <p className="copyright_text m-0">{t("footer.tagline")}</p>
         </div>
       </div>
+      <WhatsAppButton />
     </footer>
   );
 };
