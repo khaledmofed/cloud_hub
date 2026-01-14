@@ -79,7 +79,7 @@ const ContactSection = (props) => {
               <div className="gmap_canvas ps-lg-5">
                 <iframe
                   title={t("contactPage.map")}
-                  src="https://maps.google.com/maps?q=2880%20Broadway,%20New%20York&t=&z=13&ie=UTF8&iwloc=&output=embed"
+                  src="https://maps.google.com/maps?q=24.7135517,46.6752957&t=&z=13&ie=UTF8&iwloc=&output=embed"
                 ></iframe>
               </div>
             </div>
