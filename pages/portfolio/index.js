@@ -26,11 +26,19 @@ const PortfolioPage = (props) => {
 
   // دالة للحصول على عنوان المشروع بناءً على اللغة
   const getProjectTitle = (project) => {
-    if (!project) return '';
+    if (!project) return "";
     if (router.locale === "ar") {
-      return project.title_ar || project.title_en || getProjectTitleBySlug(project.slug);
+      return (
+        project.title_ar ||
+        project.title_en ||
+        getProjectTitleBySlug(project.slug)
+      );
     }
-    return project.title_en || project.title_ar || getProjectTitleBySlug(project.slug);
+    return (
+      project.title_en ||
+      project.title_ar ||
+      getProjectTitleBySlug(project.slug)
+    );
   };
 
   // دالة لترجمة عنوان المشروع بناءً على slug (fallback)
@@ -103,10 +111,14 @@ const PortfolioPage = (props) => {
 
   const filteredProjects =
     activeFilter === "all"
-      ? Project.slice(9, 18)
-      : Project.slice(9, 18).filter(
-          (project) => project.category === activeFilter
-        );
+      ? Project
+      : Project.filter((project) => {
+          // دعم كل من category (string) و categories (array)
+          if (project.categories && Array.isArray(project.categories)) {
+            return project.categories.includes(activeFilter);
+          }
+          return project.category === activeFilter;
+        });
 
   return (
     <Fragment>
@@ -128,28 +140,46 @@ const PortfolioPage = (props) => {
                   {t("portfolio.seeAll")}
                 </li>
                 <li
-                  className={activeFilter === "technology" ? "active" : ""}
-                  onClick={() => handleFilterClick("technology")}
+                  className={activeFilter === "Web Development" ? "active" : ""}
+                  onClick={() => handleFilterClick("Web Development")}
                 >
-                  {t("portfolio.technology")}
+                  {t("portfolio.webDevelopment")}
                 </li>
                 <li
-                  className={activeFilter === "helpdesk" ? "active" : ""}
-                  onClick={() => handleFilterClick("helpdesk")}
+                  className={activeFilter === "Mobile App" ? "active" : ""}
+                  onClick={() => handleFilterClick("Mobile App")}
                 >
-                  {t("portfolio.helpdesk")}
+                  {t("portfolio.mobileApp")}
                 </li>
                 <li
-                  className={activeFilter === "analysis" ? "active" : ""}
-                  onClick={() => handleFilterClick("analysis")}
+                  className={
+                    activeFilter === "Branding & Design" ? "active" : ""
+                  }
+                  onClick={() => handleFilterClick("Branding & Design")}
                 >
-                  {t("portfolio.analysis")}
+                  {t("portfolio.brandingDesign")}
                 </li>
                 <li
-                  className={activeFilter === "marketing" ? "active" : ""}
-                  onClick={() => handleFilterClick("marketing")}
+                  className={activeFilter === "E-Commerce" ? "active" : ""}
+                  onClick={() => handleFilterClick("E-Commerce")}
                 >
-                  {t("portfolio.marketing")}
+                  {t("portfolio.eCommerce")}
+                </li>
+                <li
+                  className={
+                    activeFilter === "Corporate Website" ? "active" : ""
+                  }
+                  onClick={() => handleFilterClick("Corporate Website")}
+                >
+                  {t("portfolio.corporateWebsite")}
+                </li>
+                <li
+                  className={
+                    activeFilter === "Education & Training" ? "active" : ""
+                  }
+                  onClick={() => handleFilterClick("Education & Training")}
+                >
+                  {t("portfolio.educationTraining")}
                 </li>
               </ul>
             </div>
@@ -161,8 +191,8 @@ const PortfolioPage = (props) => {
                       <Link
                         onClick={ClickHandler}
                         className="portfolio_image_wrap bg-light"
-                        href={"/portfolio_details/[slug]"}
-                        as={`/portfolio_details/${project.slug}`}
+                        href={project.slug}
+                        target={project.slug !== "#" ? "_blank" : undefined}
                       >
                         <Image
                           src={project.pImg}
@@ -174,18 +204,18 @@ const PortfolioPage = (props) => {
                       <h3 className="portfolio_title">
                         <Link
                           onClick={ClickHandler}
-                          href={"/portfolio_details/[slug]"}
-                          as={`/portfolio_details/${project.slug}`}
+                          href={project.slug}
+                          target={project.slug !== "#" ? "_blank" : undefined}
                         >
                           {getProjectTitle(project)}
                         </Link>
                       </h3>
-                      <ul className="category_list unordered_list">
+                      {/* <ul className="category_list unordered_list">
                         <li>
                           <Link
                             onClick={ClickHandler}
-                            href={"/portfolio_details/[slug]"}
-                            as={`/portfolio_details/${project.slug}`}
+                            href={project.slug}
+                            target={project.slug !== "#" ? "_blank" : undefined}
                           >
                             <i className="fa-solid fa-tags"></i>{" "}
                             {getProjectThumb(project.slug, "thumb1")}
@@ -194,14 +224,14 @@ const PortfolioPage = (props) => {
                         <li>
                           <Link
                             onClick={ClickHandler}
-                            href={"/portfolio_details/[slug]"}
-                            as={`/portfolio_details/${project.slug}`}
+                            href={project.slug}
+                            target={project.slug !== "#" ? "_blank" : undefined}
                           >
                             <i className="fa-solid fa-building"></i>{" "}
                             {getProjectThumb(project.slug, "thumb2")}
                           </Link>
                         </li>
-                      </ul>
+                      </ul> */}
                     </div>
                   </div>
                 </div>

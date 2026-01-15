@@ -8,6 +8,7 @@ import famizo from "/public/images/portfolio/famizo.jpeg";
 import eventsmaster from "/public/images/portfolio/eventsmaster.jpeg";
 import proton from "/public/images/portfolio/proton.jpeg";
 import swag from "/public/images/portfolio/swag.jpeg";
+import swagStore from "/public/images/portfolio/swag-store.png";
 import eklil from "/public/images/portfolio/eklil.jpeg";
 import brinkiry from "/public/images/portfolio/brinkiry.jpeg";
 import trinity from "/public/images/portfolio/trinity.jpeg";
@@ -22,6 +23,7 @@ import dopa from "/public/images/portfolio/dopa.jpeg";
 import coaches from "/public/images/portfolio/yacotch.jpeg";
 import eventmasters from "/public/images/portfolio/event-master.jpeg";
 import nuss from "/public/images/portfolio/nuss.jpeg";
+import anascube from "/public/images/portfolio/anas-cube.jpeg";
 
 import pImg7 from "/public/images/portfolio/portfolio_item_image_4.webp";
 import pImg8 from "/public/images/portfolio/portfolio_item_image_5.webp";
@@ -45,7 +47,7 @@ const Project = [
     title_en: "Akarat Istanbul",
     title_ar: "عقارات اسطنبول",
     slug: "https://akaratistanbul.net/",
-    // sub: "App Design",
+    categories: ["Web Development", "Branding & Design"],
     description:
       "Our all-encompassing IELTS Coaching curriculum encompasses every aspect...",
   },
@@ -55,7 +57,7 @@ const Project = [
     title_en: "Metachain",
     title_ar: "ميتاتشين",
     slug: "https://mcti.io/",
-    sub: "",
+    categories: ["Web Development", "Branding & Design"],
     description:
       "Our experienced coaches are not just educators; they are partners in your journey..",
   },
@@ -65,7 +67,7 @@ const Project = [
     title_en: "Zeroday Acadimay",
     title_ar: "زيروداي اكاديمي",
     slug: "https://zeroday.ivadso.com/",
-    // sub: "Web Design",
+    categories: ["Education & Training", "Branding & Design"],
     description:
       "The contents of the citizenship test typically cover a range of subjects ...",
   },
@@ -75,7 +77,7 @@ const Project = [
     title_en: "Strawberry Garden",
     title_ar: "حديقة الفراولة ",
     slug: "https://strawgardenom.com/",
-    // sub: "App Design",
+    categories: ["Web Development", "Branding & Design"],
     description:
       "Our all-encompassing IELTS Coaching curriculum encompasses every aspect...",
   },
@@ -85,7 +87,7 @@ const Project = [
     title_en: "Afamiacar",
     title_ar: "أفامياكار",
     slug: "https://afamiacar.de/",
-    // sub: "",
+    category: "E-Commerce",
     description:
       "Our experienced coaches are not just educators; they are partners in your journey..",
   },
@@ -95,7 +97,7 @@ const Project = [
     title_en: "Future AI",
     title_ar: "المستقبل الذكي",
     slug: "https://futureai-six.vercel.app/",
-    // sub: "Web Design",
+    categories: ["Web Development", "Branding & Design"],
     description:
       "The contents of the citizenship test typically cover a range of subjects ...",
   },
@@ -105,7 +107,7 @@ const Project = [
     title_en: "Famizo",
     title_ar: "فاميزو",
     slug: "https://famizo.com/",
-    // sub: "Computer Software",
+    categories: ["Web Development", "Branding & Design"],
     Industry: "Computer software",
     Country: "Germany, Issum",
     Technologies1: tImg1,
@@ -119,7 +121,7 @@ const Project = [
     title_en: "Event Masters",
     title_ar: "ايفنت ماستر",
     slug: "https://www.eventmasters.co/",
-    // sub: "Healthcare",
+    category: "Web Development",
     Industry: "Wellness & Fitness",
     Country: "Canada, Alberta",
     Technologies1: tImg1,
@@ -133,7 +135,7 @@ const Project = [
     title_en: "Saudi Proton Therapy Center",
     title_ar: "المركز السعودي للعلاج بالبروتون",
     slug: "https://sptc.med.sa/",
-    // sub: "Real Estate",
+    category: "Corporate Website",
     Industry: "Real estate",
     Country: "France, Paris",
     Technologies1: tImg4,
@@ -149,7 +151,17 @@ const Project = [
     slug: "https://swaggold.co/",
     thumb1: "Logo Design",
     thumb2: "Finance",
-    category: "technology",
+    categories: ["E-Commerce", "Branding & Design"],
+  },
+  {
+    Id: "101",
+    pImg: swagStore,
+    title_en: "Swag Gold Store",
+    title_ar: "متجر سواج للذهب",
+    slug: "https://swag.gold/en",
+    thumb1: "Logo Design",
+    thumb2: "Finance",
+    categories: ["Branding & Design", "E-Commerce"],
   },
   {
     Id: "11",
@@ -159,7 +171,7 @@ const Project = [
     slug: "https://rosemary-eta.vercel.app/",
     thumb1: "App Design",
     thumb2: "Public",
-    category: "helpdesk",
+    categories: ["Web Development", "Branding & Design"],
   },
   {
     Id: "12",
@@ -169,7 +181,7 @@ const Project = [
     slug: "https://brinkera.com/",
     thumb1: "Card Design",
     thumb2: "Transpiration",
-    category: "analysis",
+    categories: ["Web Development", "Branding & Design"],
   },
   {
     Id: "13",
@@ -179,7 +191,7 @@ const Project = [
     slug: "https://trinity-one-tau.vercel.app/",
     thumb1: "Web Design",
     thumb2: "Logistic",
-    category: "technology",
+    categories: ["Web Development", "Branding & Design"],
   },
   {
     Id: "14",
@@ -189,7 +201,7 @@ const Project = [
     slug: "https://halawonen.nl/",
     thumb1: "Web Design",
     thumb2: "Fution",
-    category: "analysis",
+    categories: ["Corporate Website", "E-Commerce"],
   },
   {
     Id: "15",
@@ -199,7 +211,22 @@ const Project = [
     slug: "https://swanclinic.sa/",
     thumb1: "Web Design",
     thumb2: "Energy",
-    category: "helpdesk",
+    category: "Corporate Website",
+  },
+  {
+    Id: "150",
+    pImg: anascube,
+    title_en: "Anas Cube",
+    title_ar: "أنس كيوب",
+    slug: "https://anascube.ai/",
+    thumb1: "Web Design",
+    thumb2: "Energy",
+    categories: [
+      "Branding & Design",
+      "E-Commerce",
+      "Web Development",
+      "Education & Training",
+    ],
   },
   {
     Id: "16",
@@ -209,7 +236,7 @@ const Project = [
     slug: "https://acceleum.com/",
     thumb1: "Web Design",
     thumb2: "Health",
-    category: "marketing",
+    category: "Corporate Website",
   },
   {
     Id: "17",
@@ -219,15 +246,15 @@ const Project = [
     slug: "https://mokafaat.vercel.app/",
     thumb1: "Web Design",
     thumb2: "Industry",
-    category: "technology",
+    categories: ["Web Development", "E-Commerce", "Branding & Design"],
   },
   {
     Id: "18",
     pImg: speak,
-    title_en: "Speak",
-    title_ar: "سبيك",
+    title_en: "Speak GPT",
+    title_ar: "سبيك جي بي تي",
     slug: "#",
-    category: "app",
+    category: "Mobile App",
   },
   {
     Id: "19",
@@ -235,7 +262,7 @@ const Project = [
     title_en: "Training",
     title_ar: "تدريب",
     slug: "#",
-    category: "app",
+    category: "Mobile App",
   },
   {
     Id: "20",
@@ -243,7 +270,7 @@ const Project = [
     title_en: "Jordan Motor",
     title_ar: "سوق سيارات الأردن",
     slug: "https://apps.apple.com/eg/app/jordan-motor-%D8%B3%D9%88%D9%82-%D8%B3%D9%8A%D8%A7%D8%B1%D8%A7%D8%AA-%D8%A7%D9%84%D8%A7%D8%B1%D8%AF%D9%86/id1669232983",
-    category: "app",
+    categories: ["Mobile App", "E-Commerce"],
   },
   {
     Id: "21",
@@ -251,7 +278,7 @@ const Project = [
     title_en: "Dopa",
     title_ar: "دوبا",
     slug: "https://apps.apple.com/eg/app/dopa-travel/id6444405642",
-    category: "app",
+    category: "Mobile App",
   },
   {
     Id: "22",
@@ -259,7 +286,7 @@ const Project = [
     title_en: "Yacotch",
     title_ar: "ياكوتش",
     slug: "https://apps.apple.com/eg/app/yacotch/id6473735732",
-    category: "app",
+    category: "Mobile App",
   },
   {
     Id: "23",
@@ -267,7 +294,7 @@ const Project = [
     title_en: "Event Masters",
     title_ar: "إيفنت ماستر",
     slug: "https://apps.apple.com/eg/app/event-masters/id6529560283",
-    category: "app",
+    category: "Mobile App",
   },
   {
     Id: "24",
@@ -275,7 +302,7 @@ const Project = [
     title_en: "Nuss | Poetry and Poetry Platform",
     title_ar: "نص | منصة الأدب والشعر",
     slug: "https://apps.apple.com/eg/app/%D9%86%D8%B5-nuss-%D9%85%D9%86%D8%B5%D8%A9-%D8%A7%D9%84%D8%A3%D8%AF%D8%A8-%D9%88%D8%A7%D9%84%D8%B4%D8%B9%D8%B1/id1597328954",
-    category: "app",
+    categories: ["Education & Training", "Mobile App"],
   },
 ];
 
