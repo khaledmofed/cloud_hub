@@ -5,8 +5,10 @@ import Link from "next/link";
 const CtaSection = (props) => {
   const { t } = useTranslation("common");
 
-  const ClickHandler = () => {
-    window.scrollTo(10, 0);
+  // بناء رابط الواتساب مع الرسالة
+  const getWhatsAppLink = () => {
+    const message = t("footer.whatsappMessage");
+    return `https://wa.me/966599555526?text=${encodeURIComponent(message)}`;
   };
 
   return (
@@ -22,8 +24,9 @@ const CtaSection = (props) => {
           <p className="heading_description mb-0">{t("cta.description")}</p>
         </div>
         <Link
-          onClick={ClickHandler}
-          href="/contact"
+          href={getWhatsAppLink()}
+          target="_blank"
+          rel="noopener noreferrer"
           className="btn btn-primary"
         >
           <span className="btn_label" data-text={t("cta.contactUsToday")}>
