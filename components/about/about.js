@@ -1,6 +1,7 @@
 import React, { useState } from 'react'
 import { useTranslation } from 'next-i18next'
 import Link from 'next/link'
+import { useRouter } from 'next/router'
 import about1 from '/public/images/about/about_image_9.webp'
 import about2 from '/public/images/about/about_image_11.webp'
 import about3 from '/public/images/about/about_image_10.webp'
@@ -10,7 +11,17 @@ import Image from 'next/image'
 
 const About = (props) => {
     const { t } = useTranslation('common')
+    const router = useRouter()
     const [isOpen, setOpen] = useState(false)
+
+    // دالة للحصول على رابط واتساب مع رسالة
+    const getWhatsAppLink = () => {
+        const phoneNumber = "966599555526";
+        const message = router.locale === "ar" 
+            ? "أريد تفاصيل انشاء متجر معكم"
+            : "I want details about creating a store with you";
+        return `https://wa.me/${phoneNumber}?text=${encodeURIComponent(message)}`;
+    };
 
     const ClickHandler = () => {
         window.scrollTo(10, 0);
@@ -77,12 +88,19 @@ const About = (props) => {
                                     </Link>
                                 </li>
                                 <li>
-                                    <button className="video_btn" onClick={() => setOpen(true)}>
-                                        <span className="btn_icon">
-                                            <i className="fa-solid fa-play"></i>
+                                    <Link 
+                                        href={getWhatsAppLink()}
+                                        target="_blank"
+                                        rel="noopener noreferrer"
+                                        className="video_btn"
+                                    >
+                                        <span className="btn_icon p-0">
+                                            <i className="fa-solid fa-store"></i>
                                         </span>
-                                        <span className="btn_label">{t('about.howWeWorks')}</span>
-                                    </button>
+                                        <span className="btn_label">
+                                        {router.locale === "ar" ? "أنشئ متجرك المتكامل بتكلفة بسيطة." : "Create your integrated store at a low cost."}
+                                        </span>
+                                    </Link>
                                 </li>
                             </ul>
                         </div>

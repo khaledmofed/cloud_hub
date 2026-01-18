@@ -3,7 +3,7 @@
 
 // IT Solution - Start
 .it_solution_hero_section {
-  padding: 70px 0;
+  padding: 30px 0;
   @media screen and (max-width: 991px) {
     padding-top: 20px;
   }
@@ -14,7 +14,7 @@
 
 .it_solution_hero_content {
   background-size: auto;
-  padding: 120px 220px 120px;
+  padding: 120px 170px 120px;
   background-repeat: no-repeat;
   background-position: left center;
   background-color: var(--bs-light);
@@ -28,7 +28,7 @@
   p {
     font-size: 18px;
     line-height: 28px;
-    margin-bottom: 30px;
+    margin-bottom: 25px;
   }
 }
 li.domain_search_item {
@@ -165,6 +165,11 @@ li.domain_search_item {
     background-repeat: no-repeat;
     background-position: center center;
     border-radius: 0 0px 20px 0px;
+    // Adjust padding for English (LTR)
+    [dir="ltr"] &,
+    html:not([dir="rtl"]) & {
+      padding: 70px 0 96px;
+    }
     .business_growth {
       width: auto !important;
       height: auto !important;
@@ -511,6 +516,21 @@ li.domain_search_item {
   }
 }
 // Domain Search TLDs - End
+
+// Hide buttons icons on mobile, show magnifying glass
+@media screen and (max-width: 767px) {
+  .hero-btn-spinner-mobile-hide,
+  .hero-btn-icon-mobile-hide,
+  .hero-domain-search-text-mobile-hide {
+    display: none !important;
+  }
+  .hero-magnifying-glass-mobile-show {
+    display: inline-block !important;
+  }
+  .domain_search_form .btn {
+    padding: 0 25px !important;
+  }
+}
 
 /* 4.05 - Hero Sections - End
 ================================================== */

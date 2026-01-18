@@ -126,15 +126,15 @@ const Hero = () => {
                             }
                           >
                             {isSearching ? (
-                              <i className="fa-solid fa-spinner fa-spin"></i>
+                              <i className="fa-solid fa-spinner fa-spin hero-btn-spinner-mobile-hide"></i>
                             ) : (
                               <>
-                                <i className="fa-solid fa-magnifying-glass"></i>{" "}
-                                {t("hero.domainSearch")}
+                                <i className="fa-solid fa-magnifying-glass hero-magnifying-glass-mobile-show"></i>{" "}
+                                <span className="hero-domain-search-text-mobile-hide">{t("hero.domainSearch")}</span>
                               </>
                             )}
                           </span>
-                          <span className="btn_icon">
+                          <span className="btn_icon hero-btn-icon-mobile-hide">
                             <i className="fa-solid fa-arrow-up-right"></i>
                           </span>
                         </button>
@@ -190,9 +190,9 @@ const Hero = () => {
                         {[
                           { ext: ".com", price: "$12.95", color: "#4A90E2" },
                           { ext: ".info", price: "$2.55", color: "#E74C3C" },
-                          { ext: ".org", price: "$2.32", color: "#2ECC71" },
+                          { ext: ".org", price: "$2.32", color: "#F1C40F" },
                           { ext: ".net", price: "$1.9", color: "#9B59B6" },
-                          { ext: ".sa", price: "$0.99", color: "#F1C40F" },
+                          { ext: ".sa", price: "$0.99", color: "#006C35" },
                         ].map((tld, index) => (
                           <li key={index}>
                             <div
@@ -349,9 +349,9 @@ const Hero = () => {
                           fontWeight="400"
                         >
                           <tspan className="business_growth-percent-58">
-                            88
+                            .sa
                           </tspan>
-                          <tspan className="business_growth-unit-58">%</tspan>
+                          {/* <tspan className="business_growth-unit-58">%</tspan> */}
                         </text>
                       </svg>
                       <p>{t("hero.businessGrowth")}</p>

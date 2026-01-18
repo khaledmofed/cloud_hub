@@ -280,10 +280,17 @@
 
   @media screen and (max-width: 1440px) {
     .it_solution_hero_content {
-      padding: 90px 80px 90px;
+      padding: 88px 80px 90px;
     }
   }
-
+  @media screen and (max-width: 768px) {
+    .it_solution_hero_content {
+      padding: 40px;
+      h1 {
+        line-height:36px !important;
+      }
+    }
+  }
   /* Pricing Block */
   .pricing_block .pricing_price_value sub {
     font-family: "Tajawal", "Arial", sans-serif !important;

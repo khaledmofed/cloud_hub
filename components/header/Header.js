@@ -57,8 +57,12 @@ const Header = (props) => {
               <u>{t("header.learnMore")}</u>{" "}
               <i
                 className={`fa-solid fa-angle-${
-                  router.locale === "ar" ? "left" : "right"
+                  router.locale === "ar" ? "right" : "right"
                 }`}
+                style={{
+                  marginRight: router.locale === "ar" ? "4px" : "0",
+                  marginLeft: router.locale === "ar" ? "0" : "4px",
+                }}
               ></i>
             </Link>
           </p>
