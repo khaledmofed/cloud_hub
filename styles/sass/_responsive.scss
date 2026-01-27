@@ -373,6 +373,9 @@ Responsive For Mobile & Tablet Devices
     bottom: 55px;
   }
 }
+.pricing_block .pricing_price_value.bg-primary-subtle.text-primary.fix-padding {
+  padding-bottom: 17px;
+}
 /* Media Screen 1199px - End
 ================================================== */
 
@@ -398,6 +401,7 @@ Responsive For Mobile & Tablet Devices
     flex-direction: column;
     align-items: flex-start;
   }
+
   .pricing_block .pricing_price_value {
     order: 1;
   }
