@@ -5,7 +5,8 @@ import Link from "next/link";
 import icon1 from "/public/images/icons/icon_mail.svg";
 import icon2 from "/public/images/icons/icon_calling.svg";
 import icon4 from "/public/images/icons/icon_mail_2.svg";
-import logo from "/public/images/site_logo/site_logo_3.svg";
+import logoEn from "/public/images/site_logo/site_logo_3.svg";
+import logoAr from "/public/images/site_logo/site_logo_ar.svg";
 import paypalIcon from "/public/images/payment-icon/paypal.svg";
 import stcIcon from "/public/images/payment-icon/stc-icon.svg";
 import mastercardIcon from "/public/images/payment-icon/master-icon.svg";
@@ -39,6 +40,8 @@ const Footer = (props) => {
     };
     return titleMap[slug] || slug;
   };
+  const logoSrc = router.locale === "ar" ? logoAr : logoEn;
+
   return (
     <footer className="site_footer footer_layout_1">
       <div
@@ -89,7 +92,7 @@ const Footer = (props) => {
                 <p className="mb-0 dir-ltr">
                   <Link
                     href={`https://wa.me/966599555526?text=${encodeURIComponent(
-                      t("footer.whatsappMessage")
+                      t("footer.whatsappMessage"),
                     )}`}
                     target="_blank"
                     rel="noopener noreferrer"
@@ -118,7 +121,7 @@ const Footer = (props) => {
                     href="/"
                   >
                     <Image
-                      src={logo}
+                      src={logoSrc}
                       alt="Cloud Hub Logo"
                       width={150}
                       height={50}

@@ -13,7 +13,8 @@ import icon8 from "/public/images/clients/client_logo_9.webp";
 import icon9 from "/public/images/clients/client_logo_10.webp";
 import icon10 from "/public/images/avatar/avatar_7.webp";
 import icon11 from "/public/images/icons/icon_quote.svg";
-import logo from "/public/images/site_logo/site_logo_3.svg";
+import logoEn from "/public/images/site_logo/site_logo_3.svg";
+import logoAr from "/public/images/site_logo/site_logo_ar.svg";
 import cases from "/public/images/case/case_image_4.webp";
 import MobileMenu from "../MobileMenu/MobileMenu";
 import LanguageSwitcher from "../LanguageSwitcher/LanguageSwitcher";
@@ -23,6 +24,7 @@ const Header = (props) => {
   const { t } = useTranslation("common");
   const router = useRouter();
   const [mobailActive, setMobailState] = useState(false);
+  const logoSrc = router.locale === "ar" ? logoAr : logoEn;
 
   const ClickHandler = () => {
     window.scrollTo(10, 0);
@@ -79,7 +81,7 @@ const Header = (props) => {
               <div className="site_logo">
                 <Link onClick={ClickHandler} className="site_link" href="/">
                   <Image
-                    src={logo}
+                    src={logoSrc}
                     alt="Site Logo – Cloud Hub – Integrated IT & Cloud Solutions"
                   />
                 </Link>

@@ -108,7 +108,75 @@ const About = (props) => {
                 </div>
             </div>
             <ModalVideo channel='youtube' autoplay isOpen={isOpen} videoId="7e90gBu4pas" onClose={() => setOpen(false)} />
+       
+            <div
+                style={{
+                    background: "#fff",
+                    borderRadius: "0px 0px 12px 12px",
+                    marginTop: "-20px",
+                    padding: "10px",
+                    fontFamily: "'Cairo', sans-serif",
+                    position: "relative",
+                    boxShadow: "0 4px 10px rgba(0,0,0,0.05)",
+                }}
+            >
+                <div className="property-features" style={{ display: "flex", flexWrap: "wrap", gap: "8px" }}>
+                    <span>✔️ سعر مميز</span>
+                    <span>✔️ أقساط مريحة</span>
+                    <span>✔️ استثمار آمن</span>
+                    <span>✔️ موقع حيوي</span>
+                    <span>✔️ جنسية تركية</span>
+                </div>
+
+                <hr style={{ border: "none", borderTop: "1px solid #eee", margin: "15px 0" }} />
+                <div
+                    className="prpfoot"
+                    style={{
+                        display: "flex",
+                        justifyContent: "space-between",
+                        alignItems: "center",
+                        padding: "10px",
+                        minHeight: "30px",
+                    }}
+                >
+                    <div style={{ fontSize: "16px", color: "#1a1a1a", fontWeight: "bold" }}>
+                        تبدأ من
+                        <span
+                            style={{
+                                fontSize: "18px",
+                                color: "#1a1a1a",
+                                fontWeight: "bold",
+                                marginRight: "10px",
+                            }}
+                        >
+                            $200,000
+                        </span>
+                    </div>
+
+                    <a
+                        className="whatsapp-btn"
+                        style={{
+                            fontSize: "14px",
+                            color: "#002b5b",
+                            background: "#ffffff",
+                            borderRadius: "10px",
+                            padding: "5px 15px",
+                            fontWeight: 600,
+                            textDecoration: "none",
+                            display: "inline-flex",
+                            alignItems: "center",
+                            gap: "6px",
+                        }}
+                        href="https://wa.me/905458551690?text=أرغب بتفاصيل شقق وفلل فاخرة في بيلكدوزو"
+                        target="_blank"
+                        rel="noopener noreferrer"
+                    >
+                        <i className="fab fa-whatsapp"></i> اطلب التفاصيل
+                    </a>
+                </div>
+            </div>
         </section>
+    
     )
 }
 
