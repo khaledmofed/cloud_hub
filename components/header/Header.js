@@ -16,6 +16,8 @@ import icon11 from "/public/images/icons/icon_quote.svg";
 import logoEn from "/public/images/site_logo/site_logo_3.svg";
 import logoAr from "/public/images/site_logo/site_logo_ar.svg";
 import cases from "/public/images/case/case_image_4.webp";
+import qrImage from "/public/images/hero/qr.jpg";
+import qrImagecircle from "/public/images/hero/qr-circle.png";
 import MobileMenu from "../MobileMenu/MobileMenu";
 import LanguageSwitcher from "../LanguageSwitcher/LanguageSwitcher";
 import Image from "next/image";
@@ -24,6 +26,7 @@ const Header = (props) => {
   const { t } = useTranslation("common");
   const router = useRouter();
   const [mobailActive, setMobailState] = useState(false);
+  const [qrPopoverOpen, setQrPopoverOpen] = useState(false);
   const logoSrc = router.locale === "ar" ? logoAr : logoEn;
 
   const ClickHandler = () => {
@@ -90,7 +93,7 @@ const Header = (props) => {
                 </div>
               </div>
             </div>
-            <div className="col-xl-6 col-lg-7 col-2">
+            <div className="col-xl-6 col-lg-7 col-1">
               <nav className="main_menu navbar navbar-expand-lg">
                 <div
                   className="main_menu_inner collapse navbar-collapse justify-content-lg-center"
@@ -449,7 +452,7 @@ const Header = (props) => {
                 </div>
               </nav>
             </div>
-            <div className="col-xl-3 col-lg-3 col-5">
+            <div className="col-xl-3 col-lg-3 col-6">
               <ul className="header_btns_group unordered_list justify-content-end">
                 <li>
                   <button
@@ -463,6 +466,47 @@ const Header = (props) => {
                   >
                     <i className="far fa-bars"></i>
                   </button>
+                </li>
+                <li className="commercial_reg_qr_li">
+                  <div
+                    className="commercial_reg_qr_wrap"
+                    onMouseEnter={() => setQrPopoverOpen(true)}
+                    onMouseLeave={() => setQrPopoverOpen(false)}
+                  >
+                    <div className="commercial_reg_qr_btn_ring">
+                      <button
+                        type="button"
+                        className="commercial_reg_qr_btn"
+                        aria-label={t("header.commercialRegisterData")}
+                      >
+                        <Image
+                          src={qrImagecircle}
+                          alt={t("header.commercialRegisterData")}
+                          width={34}
+                          height={34}
+                          className="commercial_reg_qr_thumb"
+                        />
+                      </button>
+                    </div>
+                    <div
+                      className={`commercial_reg_qr_popover ${
+                        qrPopoverOpen ? "commercial_reg_qr_popover_open" : ""
+                      }`}
+                    >
+                      <p className="commercial_reg_qr_popover_title">
+                        {t("header.commercialRegisterData")}
+                      </p>
+                      <div className="commercial_reg_qr_popover_img_wrap">
+                        <Image
+                          src={qrImage}
+                          alt={t("header.commercialRegisterData")}
+                          width={200}
+                          height={200}
+                          className="commercial_reg_qr_popover_img"
+                        />
+                      </div>
+                    </div>
+                  </div>
                 </li>
                 <li>
                   <LanguageSwitcher />
@@ -530,6 +574,115 @@ const Header = (props) => {
         @media (max-width: 991px) {
           .desktop-language-switcher {
             display: none;
+          }
+        }
+
+        /* Commercial Register QR button - rotating border + popover */
+        .commercial_reg_qr_li {
+          display: flex;
+          align-items: center;
+        }
+        .commercial_reg_qr_wrap {
+          position: relative;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+        }
+        .commercial_reg_qr_btn_ring {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 44px;
+          height: 44px;
+          border-radius: 50%;
+          padding: 2px;
+          background: conic-gradient(
+            from 0deg,
+            var(--bs-primary),
+            var(--bs-secondary),
+            var(--bs-info),
+            var(--bs-primary)
+          );
+          animation: qr_ring_rotate 2.5s linear infinite;
+        }
+        .commercial_reg_qr_btn {
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          width: 100%;
+          height: 100%;
+          border-radius: 50%;
+          border: none;
+          background: #f5f5f5;
+          cursor: pointer;
+          padding: 0;
+          transition: transform 0.2s ease, background 0.2s ease;
+        }
+        .commercial_reg_qr_btn:hover {
+          background: #fff;
+          transform: scale(1.02);
+        }
+        .commercial_reg_qr_thumb {
+          width: 24px;
+          height: 24px;
+          object-fit: cover;
+          border-radius: 4px;
+        }
+        .commercial_reg_qr_popover {
+          position: absolute;
+          top: 100%;
+          right: 0;
+          margin-top: 10px;
+          padding: 14px;
+          background: #fff;
+          border-radius: 12px;
+          box-shadow: 0 10px 40px rgba(0, 0, 0, 0.15);
+          min-width: 220px;
+          opacity: 0;
+          visibility: hidden;
+          transform: translateY(-6px);
+          transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
+          z-index: 1000;
+          pointer-events: none;
+        }
+        .commercial_reg_qr_wrap:hover .commercial_reg_qr_popover,
+        .commercial_reg_qr_popover_open {
+          opacity: 1;
+          visibility: visible;
+          transform: translateY(0);
+          pointer-events: auto;
+        }
+        .commercial_reg_qr_popover_title {
+          font-size: 14px;
+          font-weight: 600;
+          color: #1a1a1a;
+          margin: 0 0 10px 0;
+          text-align: center;
+          line-height: 1.4;
+        }
+        .commercial_reg_qr_popover_img_wrap {
+          display: flex;
+          justify-content: center;
+          align-items: center;
+        }
+        .commercial_reg_qr_popover_img {
+          width: 200px;
+          height: 200px;
+          object-fit: contain;
+        }
+        @keyframes qr_ring_rotate {
+          to {
+            transform: rotate(360deg);
+          }
+        }
+        [dir="rtl"] .commercial_reg_qr_popover {
+          right: auto;
+          left: 0;
+        }
+        @media (max-width: 991px) {
+          [dir="rtl"] .commercial_reg_qr_popover {
+            right: auto;
+            left: 0;
           }
         }
       `}</style>

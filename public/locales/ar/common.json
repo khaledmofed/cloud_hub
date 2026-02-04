@@ -33,7 +33,8 @@
     "computerSoftware": "برمجيات الحاسوب",
     "astarteMedical": "أستارت ميديكال",
     "case": "الحالة",
-    "readCase": "اقرأ الحالة"
+    "readCase": "اقرأ الحالة",
+    "commercialRegisterData": "البيانات الأساسية للسجل التجاري"
   },
   "services": {
     "allServices": "جميع الخدمات",
@@ -76,6 +77,9 @@
     "callUs": "اتصل بنا (المملكة العربية السعودية)",
     "ourOffice": "مكتبنا",
     "contactViaWhatsapp": "تواصل عبر الواتس",
+    "commercialRegister": "السجل التجاري",
+    "commercialRegisterNumber": "عرض البيانات الأساسية",
+    "commercialRegisterData": "البيانات الأساسية للسجل التجاري",
     "whatsappMessage": "مرحباً، أود التواصل معكم لطلب خدمة من محور الحوسبة. شكراً لكم",
     "serviceInquiry": "الخدمة المطلوبة",
     "companyDescription": "محور الحوسبة – مركز واحد، جميع حلول تكنولوجيا المعلومات. نقدم خدمات متكاملة في مجال التكنولوجيا والحلول السحابية.",
@@ -445,8 +449,8 @@
     "hostingPackage": "باقات الاستضافة",
     "hostingPackageDesc": "استضافة متنوعة: مشتركة، VPS، سحابية. تبدأ من 31 ريال شهرياً.",
     "hostingPrice": "الاستضافة المشتركة",
-"hostingPriceFrom": "تبدأ من",
-"hostingPriceAmount": "31 شهرياً",
+    "hostingPriceFrom": "تبدأ من",
+    "hostingPriceAmount": "31 شهرياً",
     "hostingFeature1": "استضافة مشتركة، VPS، وسحابية",
     "hostingFeature2": "لوحة تحكم (cPanel / Plesk)",
     "hostingFeature3": "شهادات SSL ودعم فني 24/7",

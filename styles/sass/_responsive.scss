@@ -759,6 +759,17 @@ Responsive For Mobile & Tablet Devices
 /* Media Screen 767px - Start
 ================================================== */
 @media screen and (max-width: 767px) {
+  .mobile_menu_btn {
+    width: 44px;
+    height: 44px;
+    border: 1px solid #aad1fe;
+  }
+  .site_header .header_btns_group {
+    gap: 5px;
+  }
+  .header_btns_group li {
+    margin-right: 5px;
+  }
   .site_header .header_btns_group {
     > li {
       &:last-child {

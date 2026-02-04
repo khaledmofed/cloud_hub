@@ -130,7 +130,9 @@ const Hero = () => {
                             ) : (
                               <>
                                 <i className="fa-solid fa-magnifying-glass hero-magnifying-glass-mobile-show"></i>{" "}
-                                <span className="hero-domain-search-text-mobile-hide">{t("hero.domainSearch")}</span>
+                                <span className="hero-domain-search-text-mobile-hide">
+                                  {t("hero.domainSearch")}
+                                </span>
                               </>
                             )}
                           </span>

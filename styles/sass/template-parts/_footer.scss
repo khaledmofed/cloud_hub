@@ -436,5 +436,69 @@
     }
   }
 }
+
+// Footer Commercial Register - Popover
+.footer_commercial_reg_wrap {
+  position: relative;
+}
+.footer_commercial_reg_btn {
+  &:hover {
+    opacity: 0.9;
+  }
+}
+.footer_commercial_reg_popover {
+  position: absolute;
+  bottom: 100%;
+  left: 0;
+  margin-bottom: 10px;
+  padding: 14px;
+  background: #fff;
+  border-radius: 12px;
+  box-shadow: 0 10px 40px rgba(0, 0, 0, 0.2);
+  min-width: 220px;
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(6px);
+  transition: opacity 0.2s ease, transform 0.2s ease, visibility 0.2s;
+  z-index: 1000;
+  pointer-events: none;
+}
+.footer_commercial_reg_popover_open {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+  pointer-events: auto;
+}
+.footer_commercial_reg_popover_title {
+  font-size: 14px;
+  font-weight: 600;
+  color: #1a1a1a;
+  margin: 0 0 10px 0;
+  text-align: center;
+  line-height: 1.4;
+}
+.footer_commercial_reg_popover_img_wrap {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.footer_commercial_reg_popover_img {
+  width: 200px;
+  height: 200px;
+  object-fit: contain;
+}
+
+[dir="rtl"] .footer_commercial_reg_popover {
+  left: auto;
+  right: 0;
+}
+
+@media (max-width: 991px) {
+  [dir="rtl"] .footer_commercial_reg_popover {
+    left: auto;
+    right: 0;
+  }
+}
+
 /* 3.02 - Site Footer - End
 ================================================== */

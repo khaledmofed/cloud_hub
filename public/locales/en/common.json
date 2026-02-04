@@ -33,7 +33,8 @@
     "computerSoftware": "Computer Software",
     "astarteMedical": "Astarte Medical",
     "case": "Case",
-    "readCase": "Read Case"
+    "readCase": "Read Case",
+    "commercialRegisterData": "Basic Commercial Register Data"
   },
   "services": {
     "allServices": "All Services",
@@ -76,6 +77,9 @@
     "callUs": "Call Us (Saudi Arabia)",
     "ourOffice": "Our Office",
     "contactViaWhatsapp": "Contact via WhatsApp",
+    "commercialRegister": "Commercial Register",
+    "commercialRegisterNumber": "View basic data",
+    "commercialRegisterData": "Basic Commercial Register Data",
     "whatsappMessage": "Hello, I would like to contact you to request a service from Cloud Hub. Thank you",
     "serviceInquiry": "Requested Service",
     "companyDescription": "Cloud Hub – One Hub, All IT Solutions. We provide integrated services in technology and cloud solutions.",
@@ -445,8 +449,8 @@
     "hostingPackage": "Hosting Plans",
     "hostingPackageDesc": "Various hosting: shared, VPS, cloud. Starting from 31 SAR per month.",
     "hostingPrice": "Shared Hosting",
-"hostingPriceFrom": "Starting from",
-"hostingPriceAmount": "31 per month",
+    "hostingPriceFrom": "Starting from",
+    "hostingPriceAmount": "31 per month",
     "hostingFeature1": "Shared, VPS & cloud hosting",
     "hostingFeature2": "Control panel (cPanel / Plesk)",
     "hostingFeature3": "SSL certificates & 24/7 support",

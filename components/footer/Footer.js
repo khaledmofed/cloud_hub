@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useState, useRef, useEffect } from "react";
 import { useTranslation } from "next-i18next";
 import { useRouter } from "next/router";
 import Link from "next/link";
@@ -12,6 +12,7 @@ import stcIcon from "/public/images/payment-icon/stc-icon.svg";
 import mastercardIcon from "/public/images/payment-icon/master-icon.svg";
 import visaIcon from "/public/images/payment-icon/visa-icon.svg";
 import madaIcon from "/public/images/payment-icon/mada-icon.svg";
+import qrImage from "/public/images/hero/qr.jpg";
 import Services from "../../api/service";
 import WhatsAppButton from "../WhatsAppButton/WhatsAppButton";
 import Image from "next/image";
@@ -27,6 +28,19 @@ const SubmitHandler = (e) => {
 const Footer = (props) => {
   const { t } = useTranslation("common");
   const router = useRouter();
+  const [footerQrOpen, setFooterQrOpen] = useState(false);
+  const footerQrRef = useRef(null);
+
+  useEffect(() => {
+    if (!footerQrOpen) return;
+    const handleClickOutside = (e) => {
+      if (footerQrRef.current && !footerQrRef.current.contains(e.target)) {
+        setFooterQrOpen(false);
+      }
+    };
+    document.addEventListener("mousedown", handleClickOutside);
+    return () => document.removeEventListener("mousedown", handleClickOutside);
+  }, [footerQrOpen]);
 
   // دالة لترجمة عنوان الخدمة بناءً على slug
   const getServiceTitle = (slug) => {
@@ -92,7 +106,7 @@ const Footer = (props) => {
                 <p className="mb-0 dir-ltr">
                   <Link
                     href={`https://wa.me/966599555526?text=${encodeURIComponent(
-                      t("footer.whatsappMessage"),
+                      t("footer.whatsappMessage")
                     )}`}
                     target="_blank"
                     rel="noopener noreferrer"
@@ -107,6 +121,57 @@ const Footer = (props) => {
                     +966 59 955 5526
                   </Link>
                 </p>
+              </div>
+            </div>
+            <div
+              className="iconbox_block layout_icon_left footer_commercial_reg_wrap"
+              ref={footerQrRef}
+              onMouseEnter={() => setFooterQrOpen(true)}
+              onMouseLeave={() => setFooterQrOpen(false)}
+            >
+              <div className="iconbox_icon">
+                <i className="fa-solid fa-file-invoice"></i>
+              </div>
+              <div className="iconbox_content">
+                <h3 className="iconbox_title">
+                  {t("footer.commercialRegister")}
+                </h3>
+                <p className="mb-0">
+                  <a
+                    href="https://qr.saudibusiness.gov.sa/viewcr?nCrNumber=KC6JAeXvv5JyxcPZC4kdUg=="
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="footer_commercial_reg_btn"
+                    style={{
+                      color: "inherit",
+                      textDecoration: "unset",
+                      textUnderlineOffset: "3px",
+                      transition: "opacity 0.3s ease",
+                    }}
+                    onMouseEnter={(e) => (e.target.style.opacity = "0.8")}
+                    onMouseLeave={(e) => (e.target.style.opacity = "1")}
+                  >
+                    {t("footer.commercialRegisterNumber")}
+                  </a>
+                </p>
+                <div
+                  className={`footer_commercial_reg_popover ${
+                    footerQrOpen ? "footer_commercial_reg_popover_open" : ""
+                  }`}
+                >
+                  {/* <p className="footer_commercial_reg_popover_title">
+                    {t("footer.commercialRegisterData")}
+                  </p> */}
+                  <div className="footer_commercial_reg_popover_img_wrap">
+                    <Image
+                      src={qrImage}
+                      alt={t("footer.commercialRegisterData")}
+                      width={200}
+                      height={200}
+                      className="footer_commercial_reg_popover_img"
+                    />
+                  </div>
+                </div>
               </div>
             </div>
           </div>
