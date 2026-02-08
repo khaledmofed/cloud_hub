@@ -16,8 +16,6 @@ import icon11 from "/public/images/icons/icon_quote.svg";
 import logoEn from "/public/images/site_logo/site_logo_3.svg";
 import logoAr from "/public/images/site_logo/site_logo_ar.svg";
 import cases from "/public/images/case/case_image_4.webp";
-import qrImage from "/public/images/hero/qr.jpg";
-import qrImagecircle from "/public/images/hero/qr-circle.png";
 import MobileMenu from "../MobileMenu/MobileMenu";
 import LanguageSwitcher from "../LanguageSwitcher/LanguageSwitcher";
 import Image from "next/image";
@@ -480,7 +478,7 @@ const Header = (props) => {
                         aria-label={t("header.commercialRegisterData")}
                       >
                         <Image
-                          src={qrImagecircle}
+                          src="/images/hero/qr-circle.png"
                           alt={t("header.commercialRegisterData")}
                           width={34}
                           height={34}
@@ -498,7 +496,7 @@ const Header = (props) => {
                       </p>
                       <div className="commercial_reg_qr_popover_img_wrap">
                         <Image
-                          src={qrImage}
+                          src="/images/hero/qr.jpg"
                           alt={t("header.commercialRegisterData")}
                           width={200}
                           height={200}

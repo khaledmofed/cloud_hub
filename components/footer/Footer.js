@@ -12,7 +12,6 @@ import stcIcon from "/public/images/payment-icon/stc-icon.svg";
 import mastercardIcon from "/public/images/payment-icon/master-icon.svg";
 import visaIcon from "/public/images/payment-icon/visa-icon.svg";
 import madaIcon from "/public/images/payment-icon/mada-icon.svg";
-import qrImage from "/public/images/hero/qr.jpg";
 import Services from "../../api/service";
 import WhatsAppButton from "../WhatsAppButton/WhatsAppButton";
 import Image from "next/image";
@@ -164,7 +163,7 @@ const Footer = (props) => {
                   </p> */}
                   <div className="footer_commercial_reg_popover_img_wrap">
                     <Image
-                      src={qrImage}
+                      src="/images/hero/qr.jpg"
                       alt={t("footer.commercialRegisterData")}
                       width={200}
                       height={200}
