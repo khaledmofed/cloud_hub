@@ -10,11 +10,21 @@ import Scrollbar from "../../components/scrollbar/scrollbar";
 import Footer from "../../components/footer/Footer";
 import CtaSection from "../../components/CtaSection/CtaSection";
 import Image from "next/image";
+import SEO from "../../components/SEO/SEO";
+import { getBreadcrumbSchema } from "../../utils/seoSchemas";
 
 const PortfolioPage = (props) => {
   const { t } = useTranslation("common");
+  const { t: tSeo } = useTranslation("seo");
   const router = useRouter();
+  const locale = router.locale || "ar";
+  const isAr = locale === "ar";
   const [activeFilter, setActiveFilter] = useState("all");
+
+  const breadcrumbs = getBreadcrumbSchema(
+    [{ name: isAr ? "مشاريعنا" : "Portfolio", url: "/portfolio" }],
+    locale
+  );
 
   const ClickHandler = () => {
     window.scrollTo(10, 0);
@@ -122,6 +132,15 @@ const PortfolioPage = (props) => {
 
   return (
     <Fragment>
+      <SEO
+        title={tSeo("portfolio.title")}
+        description={tSeo("portfolio.description")}
+        keywords={tSeo("portfolio.keywords")}
+        locale={locale}
+        path="/portfolio"
+        ogImage="/images/portfolio/portfolio_details_image_1.webp"
+        structuredData={breadcrumbs}
+      />
       <Header />
       <main className="page_content about-page">
         <PageTitle
@@ -251,7 +270,7 @@ const PortfolioPage = (props) => {
 export async function getServerSideProps({ locale }) {
   return {
     props: {
-      ...(await serverSideTranslations(locale, ["common"])),
+      ...(await serverSideTranslations(locale, ["common", "seo"])),
     },
   };
 }

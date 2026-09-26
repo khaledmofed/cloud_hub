@@ -1,31 +1,44 @@
 {
+  "siteName": "Cloud Hub",
+  "siteUrl": "https://ch.sa",
   "home": {
-    "title": "Cloud Hub | Integrated IT & Cloud Solutions",
-    "description": "Cloud Hub is a comprehensive IT solutions platform delivering web and mobile development, cloud infrastructure, DevOps, systems engineering, hosting, and server management.",
-    "keywords": "IT solutions, cloud infrastructure, web development, mobile development, DevOps, systems engineering, hosting, server management"
+    "title": "Cloud Hub | Integrated IT & Cloud Solutions in Saudi Arabia",
+    "description": "Cloud Hub is a premier Saudi IT solutions platform delivering web and mobile development, cloud hosting, DevOps, cybersecurity, and server management.",
+    "keywords": "Cloud Hub, hosting Saudi Arabia, IT solutions, cloud infrastructure, web development, mobile apps, DevOps, servers, cybersecurity"
   },
   "about": {
     "title": "About Us | Cloud Hub - IT Solutions Provider",
-    "description": "Learn about Cloud Hub, your trusted partner for comprehensive IT solutions, cloud services, and technology consulting."
+    "description": "Learn about Cloud Hub, your trusted Saudi partner for comprehensive IT solutions, cloud hosting, and digital transformation.",
+    "keywords": "about Cloud Hub, Saudi hosting company, IT services, cloud provider"
   },
   "portfolio": {
     "title": "Our Portfolio | Cloud Hub Projects",
-    "description": "Explore our portfolio of successful IT projects, web applications, and cloud solutions delivered to clients worldwide."
+    "description": "Explore our portfolio of successful IT projects, web applications, and cloud solutions delivered across Saudi Arabia and the region.",
+    "keywords": "Cloud Hub portfolio, web projects, IT solutions case studies"
   },
   "services": {
-    "title": "Our Services | Cloud Hub IT Solutions",
-    "description": "Discover our comprehensive range of IT services including web development, cloud infrastructure, DevOps, and system management."
+    "title": "Our Services | Cloud Hub IT & Hosting Solutions",
+    "description": "Discover our comprehensive range of services including cloud hosting, domains, web development, cybersecurity, and digital transformation.",
+    "keywords": "cloud hosting, domains, web development, cybersecurity, digital transformation, IT solutions"
   },
   "pricing": {
-    "title": "Pricing Plans | Cloud Hub",
-    "description": "Choose the perfect pricing plan for your business. Flexible IT solutions and cloud services tailored to your needs."
+    "title": "Pricing & Hosting Plans | Cloud Hub",
+    "description": "Choose the perfect hosting and IT solutions plan for your business. Scalable, high-performance cloud hosting in Saudi Arabia.",
+    "keywords": "hosting prices, cloud plans, VPS hosting, dedicated servers Saudi Arabia"
+  },
+  "blog": {
+    "title": "Blog & Insights | Cloud Hub",
+    "description": "Stay updated with the latest trends and guides in cloud computing, hosting, cybersecurity, and tech innovations from Cloud Hub.",
+    "keywords": "Cloud Hub blog, tech articles, hosting news, cloud computing Saudi Arabia"
+  },
+  "team": {
+    "title": "Our Team | Cloud Hub",
+    "description": "Meet the team of experienced engineers, developers, and tech consultants behind Cloud Hub.",
+    "keywords": "Cloud Hub team, IT consultants, software engineers"
   },
   "contact": {
     "title": "Contact Us | Cloud Hub",
-    "description": "Get in touch with Cloud Hub. We're here to help you with all your IT solutions and cloud service needs."
-  },
-  "siteName": "Cloud Hub",
-  "siteUrl": "https://cloudhub.com"
+    "description": "Get in touch with Cloud Hub in Saudi Arabia. We are ready to assist you with cloud hosting, IT infrastructure, and technical support.",
+    "keywords": "contact Cloud Hub, IT support Saudi Arabia, hosting customer service"
+  }
 }
-
-

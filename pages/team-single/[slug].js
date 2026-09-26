@@ -1,30 +1,52 @@
 import React, { Fragment } from 'react';
 import Header from '../../components/header/Header';
-import Teams from '../../api/team'
+import Teams from '../../api/team';
 import CountUp from 'react-countup';
-import { useRouter } from 'next/router'
+import { useRouter } from 'next/router';
 import Link from "next/link";
 import Image from 'next/image';
-import PageTitle from '../../components/pagetitle/PageTitle'
-import Scrollbar from '../../components/scrollbar/scrollbar'
+import PageTitle from '../../components/pagetitle/PageTitle';
+import Scrollbar from '../../components/scrollbar/scrollbar';
 import Footer from '../../components/footer/Footer';
 import CtaSection from '../../components/CtaSection/CtaSection';
-import sImg1 from '/public/images/icons/icon_facebook.svg'
-import sImg2 from '/public/images/icons/icon_twitter_x.svg'
-import sImg3 from '/public/images/icons/icon_linkedin.svg'
-import sImg4 from '/public/images/icons/icon_instagram.svg'
+import SEO from '../../components/SEO/SEO';
+import { getBreadcrumbSchema } from '../../utils/seoSchemas';
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import sImg1 from '/public/images/icons/icon_facebook.svg';
+import sImg2 from '/public/images/icons/icon_twitter_x.svg';
+import sImg3 from '/public/images/icons/icon_linkedin.svg';
+import sImg4 from '/public/images/icons/icon_instagram.svg';
 
-const TeamSinglePage = (props) => {
-    const router = useRouter()
+const TeamSinglePage = ({ teamItem, locale = "ar" }) => {
+    const router = useRouter();
 
-    const TeamDetails = Teams.find(item => item.slug === router.query.slug)
+    const TeamDetails = teamItem || Teams.find(item => item.slug === router.query.slug);
+    const isAr = locale === "ar";
+    const siteName = isAr ? "محور الحوسبة" : "Cloud Hub";
+
+    const breadcrumbs = getBreadcrumbSchema(
+        [
+            { name: isAr ? "فريق العمل" : "Team", url: "/team" },
+            { name: TeamDetails?.name || "", url: `/team-single/${TeamDetails?.slug}` },
+        ],
+        locale
+    );
 
     const ClickHandler = () => {
         window.scrollTo(10, 0);
-    }
+    };
 
     return (
         <Fragment>
+            <SEO
+                title={`${TeamDetails?.name} - ${TeamDetails?.title} | ${siteName}`}
+                description={`${TeamDetails?.name} - ${TeamDetails?.title} في محور الحوسبة لخدمات تكنولوجيا المعلومات والحوسبة السحابية.`}
+                keywords={`${TeamDetails?.name}, ${TeamDetails?.title}, فريق محور الحوسبة`}
+                locale={locale}
+                path={`/team-single/${TeamDetails?.slug}`}
+                ogImage={TeamDetails?.imageSrc}
+                structuredData={breadcrumbs}
+            />
             <Header />
             <main className="page_content about-page">
                 <PageTitle pageTitle={TeamDetails?.name} pagesub={'Details 😍'} pageTop={'Team'} />
@@ -209,6 +231,36 @@ const TeamSinglePage = (props) => {
             <Footer />
             <Scrollbar />
         </Fragment>
-    )
+    );
 };
+
+export async function getServerSideProps({ params, locale }) {
+  const { slug } = params;
+  const teamItem = Teams.find((item) => item.slug === slug);
+
+  if (!teamItem) {
+    return {
+      notFound: true,
+    };
+  }
+
+  const serializedTeam = {
+    Id: teamItem.Id || null,
+    name: teamItem.name || "",
+    slug: teamItem.slug || "",
+    title: teamItem.title || "",
+    imageSrc:
+      teamItem.tImg?.src ||
+      (typeof teamItem.tImg === "string" ? teamItem.tImg : null),
+  };
+
+  return {
+    props: {
+      teamItem: serializedTeam,
+      locale,
+      ...(await serverSideTranslations(locale, ["common", "seo"])),
+    },
+  };
+}
+
 export default TeamSinglePage;

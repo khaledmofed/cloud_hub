@@ -14,12 +14,32 @@ import FeaturesSection from "../../components/FeaturesSection/FeaturesSection";
 import TeamSection from "../../components/TeamSection/TeamSection";
 import CtaSection from "../../components/CtaSection/CtaSection";
 import Image from "next/image";
+import SEO from "../../components/SEO/SEO";
+import { getBreadcrumbSchema } from "../../utils/seoSchemas";
 
 const AboutUsPage = (props) => {
   const { t } = useTranslation("common");
+  const { t: tSeo, i18n } = useTranslation("seo");
+  const locale = i18n?.language || "ar";
+  const isAr = locale === "ar";
   const [isOpen, setOpen] = useState(false);
+
+  const breadcrumbs = getBreadcrumbSchema(
+    [{ name: isAr ? "من نحن" : "About Us", url: "/about" }],
+    locale
+  );
+
   return (
     <Fragment>
+      <SEO
+        title={tSeo("about.title")}
+        description={tSeo("about.description")}
+        keywords={tSeo("about.keywords")}
+        locale={locale}
+        path="/about"
+        ogImage="/images/about/about_image_3.webp"
+        structuredData={breadcrumbs}
+      />
       <Header />
       <main className="page_content about-page">
         <PageTitle
@@ -97,7 +117,7 @@ const AboutUsPage = (props) => {
 export async function getServerSideProps({ locale }) {
   return {
     props: {
-      ...(await serverSideTranslations(locale, ["common"])),
+      ...(await serverSideTranslations(locale, ["common", "seo"])),
     },
   };
 }

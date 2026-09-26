@@ -64,11 +64,8 @@ function MyApp({ Component, pageProps }) {
   return (
     <div>
       <Head>
-        <title>Cloud Hub | Integrated IT & Cloud Solutions</title>
-        <meta name="description" content="Cloud Hub is a comprehensive IT solutions platform delivering web and mobile development, cloud infrastructure, DevOps, systems engineering, hosting, and server management." />
-        <meta name="keywords" content="IT solutions, cloud infrastructure, web development, mobile development, DevOps, systems engineering, hosting, server management" />
-        <meta property="og:title" content="Cloud Hub | Integrated IT & Cloud Solutions" />
-        <meta property="og:description" content="Cloud Hub is a comprehensive IT solutions platform delivering web and mobile development, cloud infrastructure, DevOps, systems engineering, hosting, and server management." />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <link rel="icon" href="/favicon.ico" />
       </Head>
       <Component {...pageProps} />
     </div>

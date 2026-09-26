@@ -28,7 +28,8 @@ import Image from "next/image";
 const BlogSingle = (props) => {
   const router = useRouter();
 
-  const BlogDetails = blogs.find((item) => item.slug === router.query.slug);
+  const BlogDetails =
+    props.blog || blogs.find((item) => item.slug === router.query.slug);
 
   const ClickHandler = () => {
     window.scrollTo(10, 0);

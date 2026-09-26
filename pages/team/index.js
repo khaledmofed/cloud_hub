@@ -1,11 +1,15 @@
 import React, { Fragment } from 'react';
 import Link from "next/link";
 import Teams from '../../api/team'
+import { serverSideTranslations } from 'next-i18next/serverSideTranslations';
+import { useTranslation } from 'next-i18next';
 import Header from '../../components/header/Header';
 import PageTitle from '../../components/pagetitle/PageTitle'
 import Scrollbar from '../../components/scrollbar/scrollbar'
 import Footer from '../../components/footer/Footer';
 import CtaSection from '../../components/CtaSection/CtaSection';
+import SEO from '../../components/SEO/SEO';
+import { getBreadcrumbSchema } from '../../utils/seoSchemas';
 import tImg from '/public/images/team/team_cartoon_image.webp'
 import sImg1 from '/public/images/icons/icon_facebook.svg'
 import sImg2 from '/public/images/icons/icon_twitter_x.svg'
@@ -14,12 +18,28 @@ import sImg4 from '/public/images/icons/icon_instagram.svg'
 import Image from 'next/image';
 
 const TeamPage = (props) => {
+    const { t: tSeo, i18n } = useTranslation('seo');
+    const locale = i18n?.language || 'ar';
+    const isAr = locale === 'ar';
+
+    const breadcrumbs = getBreadcrumbSchema(
+        [{ name: isAr ? 'فريق العمل' : 'Our Team', url: '/team' }],
+        locale
+    );
 
     const ClickHandler = () => {
         window.scrollTo(10, 0);
     }
     return (
         <Fragment>
+            <SEO
+                title={tSeo('team.title')}
+                description={tSeo('team.description')}
+                keywords={tSeo('team.keywords')}
+                locale={locale}
+                path="/team"
+                structuredData={breadcrumbs}
+            />
             <Header />
             <main className="page_content about-page">
                 <PageTitle pageTitle={'Team Member'} pagesub={'Members 😍'} pageTop={'Team'} />
@@ -117,6 +137,15 @@ const TeamPage = (props) => {
             <Footer />
             <Scrollbar />
         </Fragment>
-    )
+    );
 };
+
+export async function getServerSideProps({ locale }) {
+  return {
+    props: {
+      ...(await serverSideTranslations(locale, ["common", "seo"])),
+    },
+  };
+}
+
 export default TeamPage;

@@ -11,16 +11,34 @@ import srImg from '/public/images/services/service_image_8.webp'
 import ServiceSection from '../../components/ServiceSection/ServiceSection';
 import WhyUs from '../about/WhyUs';
 import Image from 'next/image';
-
+import SEO from '../../components/SEO/SEO';
+import { getBreadcrumbSchema } from '../../utils/seoSchemas';
 
 const ServicePage = (props) => {
     const { t } = useTranslation('common');
+    const { t: tSeo, i18n } = useTranslation('seo');
+    const locale = i18n?.language || 'ar';
+    const isAr = locale === 'ar';
+
+    const breadcrumbs = getBreadcrumbSchema(
+        [{ name: isAr ? 'الخدمات' : 'Services', url: '/service' }],
+        locale
+    );
 
     const ClickHandler = () => {
         window.scrollTo(10, 0);
     }
     return (
         <Fragment>
+            <SEO
+                title={tSeo('services.title')}
+                description={tSeo('services.description')}
+                keywords={tSeo('services.keywords')}
+                locale={locale}
+                path="/service"
+                ogImage="/images/services/service_image_8.webp"
+                structuredData={breadcrumbs}
+            />
             <Header />
             <main className="page_content about-page">
                 <PageTitle pageTitle={t('servicePage.ourServices')} pagesub={t('servicePage.services')} pageTop={t('servicePage.ourMain')} />
@@ -71,7 +89,7 @@ const ServicePage = (props) => {
 export async function getServerSideProps({ locale }) {
   return {
     props: {
-      ...(await serverSideTranslations(locale, ['common'])),
+      ...(await serverSideTranslations(locale, ['common', 'seo'])),
     },
   };
 }

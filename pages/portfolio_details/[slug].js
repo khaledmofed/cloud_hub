@@ -12,14 +12,15 @@ import CtaSection from "../../components/CtaSection/CtaSection";
 import psImg from "/public/images/portfolio/portfolio_details_image_1.webp";
 import icon from "/public/images/icons/icon_check_3.svg";
 import Image from "next/image";
+import SEO from "../../components/SEO/SEO";
+import { getBreadcrumbSchema } from "../../utils/seoSchemas";
 
-const PortfolioSinglePage = (props) => {
+const PortfolioSinglePage = ({ projectItem, locale = "ar" }) => {
   const { t } = useTranslation("common");
   const router = useRouter();
 
-  const PortfolioDetails = Project.find(
-    (item) => item.slug === router.query.slug
-  );
+  const PortfolioDetails =
+    projectItem || Project.find((item) => item.slug === router.query.slug);
 
   // دالة للحصول على عنوان المشروع بناءً على اللغة
   const getProjectTitle = (project) => {
@@ -116,8 +117,38 @@ const PortfolioSinglePage = (props) => {
     window.scrollTo(10, 0);
   };
 
+  const projectTitle = PortfolioDetails ? getProjectTitle(PortfolioDetails) : "";
+  const isAr = locale === "ar";
+  const siteName = isAr ? "محور الحوسبة" : "Cloud Hub";
+
+  const breadcrumbs = getBreadcrumbSchema(
+    [
+      { name: isAr ? "المشاريع" : "Portfolio", url: "/portfolio" },
+      { name: projectTitle, url: `/portfolio_details/${PortfolioDetails?.slug}` },
+    ],
+    locale
+  );
+
   return (
     <Fragment>
+      <SEO
+        title={`${projectTitle} | ${siteName}`}
+        description={
+          PortfolioDetails?.description ||
+          (isAr
+            ? `مشروع ${projectTitle} المنفذ بواسطة محور الحوسبة لأحدث حلول تكنولوجيا المعلومات والخدمات السحابية.`
+            : `Project ${projectTitle} delivered by Cloud Hub IT & Cloud Solutions.`)
+        }
+        keywords={`${projectTitle}, ${
+          isAr
+            ? "مشاريع تقنية، تطوير مواقع، حلول سحابية، سابقة أعمال، السعودية"
+            : "cloud projects, web development, IT solutions portfolio"
+        }`}
+        locale={locale}
+        path={`/portfolio_details/${PortfolioDetails?.slug}`}
+        ogImage="/images/portfolio/portfolio_details_image_1.webp"
+        structuredData={breadcrumbs}
+      />
       <Header />
       <main className="page_content about-page">
         <PageTitle
@@ -264,48 +295,90 @@ const PortfolioSinglePage = (props) => {
                 <div className="col-lg-6" key={prj}>
                   <div className="portfolio_block portfolio_layout_2">
                     <div className="portfolio_image">
-                      <Link
-                        onClick={ClickHandler}
-                        className="portfolio_image_wrap bg-light"
-                        href={"/portfolio_details/[slug]"}
-                        as={`/portfolio_details/${project.slug}`}
-                      >
-                        <Image
-                          src={project.pImg}
-                          alt={getProjectTitle(project)}
-                        />
-                      </Link>
+                      {project.slug?.startsWith("http") ? (
+                        <a
+                          className="portfolio_image_wrap bg-light"
+                          href={project.slug}
+                          target="_blank"
+                          rel="noopener noreferrer"
+                        >
+                          <Image
+                            src={project.pImg}
+                            alt={getProjectTitle(project)}
+                          />
+                        </a>
+                      ) : (
+                        <Link
+                          onClick={ClickHandler}
+                          className="portfolio_image_wrap bg-light"
+                          href={`/portfolio_details/${project.slug}`}
+                        >
+                          <Image
+                            src={project.pImg}
+                            alt={getProjectTitle(project)}
+                          />
+                        </Link>
+                      )}
                     </div>
                     <div className="portfolio_content">
                       <h3 className="portfolio_title">
-                        <Link
-                          onClick={ClickHandler}
-                          href={"/portfolio_details/[slug]"}
-                          as={`/portfolio_details/${project.slug}`}
-                        >
-                          {getProjectTitle(project)}
-                        </Link>
+                        {project.slug?.startsWith("http") ? (
+                          <a
+                            href={project.slug}
+                            target="_blank"
+                            rel="noopener noreferrer"
+                          >
+                            {getProjectTitle(project)}
+                          </a>
+                        ) : (
+                          <Link
+                            onClick={ClickHandler}
+                            href={`/portfolio_details/${project.slug}`}
+                          >
+                            {getProjectTitle(project)}
+                          </Link>
+                        )}
                       </h3>
                       <ul className="category_list unordered_list">
                         <li>
-                          <Link
-                            onClick={ClickHandler}
-                            href={"/portfolio_details/[slug]"}
-                            as={`/portfolio_details/${project.slug}`}
-                          >
-                            <i className="fa-solid fa-tags"></i>{" "}
-                            {getProjectThumb(project.slug, "thumb1")}
-                          </Link>
+                          {project.slug?.startsWith("http") ? (
+                            <a
+                              href={project.slug}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                            >
+                              <i className="fa-solid fa-tags"></i>{" "}
+                              {getProjectThumb(project.slug, "thumb1")}
+                            </a>
+                          ) : (
+                            <Link
+                              onClick={ClickHandler}
+                              href={`/portfolio_details/${project.slug}`}
+                            >
+                              <i className="fa-solid fa-tags"></i>{" "}
+                              {getProjectThumb(project.slug, "thumb1")}
+                            </Link>
+                          )}
                         </li>
                         <li>
-                          <Link
-                            onClick={ClickHandler}
-                            href={"/portfolio_details/[slug]"}
-                            as={`/portfolio_details/${project.slug}`}
-                          >
-                            <i className="fa-solid fa-building"></i>{" "}
-                            {getProjectThumb(project.slug, "thumb2")}
-                          </Link>
+                          {project.slug?.startsWith("http") ? (
+                            <a
+                              href={project.slug}
+                              target="_blank"
+                              rel="noopener noreferrer"
+                            >
+                              <i className="fa-solid fa-building"></i>{" "}
+                              {getProjectThumb(project.slug, "thumb2")}
+                            </a>
+                          ) : (
+                            <Link
+                              onClick={ClickHandler}
+                              href={`/portfolio_details/${project.slug}`}
+                            >
+                              <i className="fa-solid fa-building"></i>{" "}
+                              {getProjectThumb(project.slug, "thumb2")}
+                            </Link>
+                          )}
                         </li>
                       </ul>
                     </div>
@@ -323,10 +396,34 @@ const PortfolioSinglePage = (props) => {
   );
 };
 
-export async function getServerSideProps({ locale }) {
+export async function getServerSideProps({ params, locale }) {
+  const { slug } = params;
+  const projectItem = Project.find((item) => item.slug === slug);
+
+  if (!projectItem) {
+    return {
+      notFound: true,
+    };
+  }
+
+  const serializedProject = {
+    Id: projectItem.Id || null,
+    pImg:
+      projectItem.pImg?.src ||
+      (typeof projectItem.pImg === "string" ? projectItem.pImg : null),
+    title: projectItem.title || "",
+    title_ar: projectItem.title_ar || "",
+    title_en: projectItem.title_en || "",
+    slug: projectItem.slug || "",
+    category: projectItem.category || "",
+    description: projectItem.description || "",
+  };
+
   return {
     props: {
-      ...(await serverSideTranslations(locale, ["common"])),
+      projectItem: serializedProject,
+      locale,
+      ...(await serverSideTranslations(locale, ["common", "seo"])),
     },
   };
 }

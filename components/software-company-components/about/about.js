@@ -128,9 +128,15 @@ const About = (props) => {
                     <li><a href="portfolio.html">{project.sub}</a></li>
                   </ul>
                   <h3 className="case_title">
-                    <Link onClick={ClickHandler} href={'/portfolio_details/[slug]'} as={`/portfolio_details/${project.slug}`}>
-                      {getProjectTitle(project)}
-                    </Link>
+                    {project.slug?.startsWith("http") ? (
+                      <a href={project.slug} target="_blank" rel="noopener noreferrer">
+                        {getProjectTitle(project)}
+                      </a>
+                    ) : (
+                      <Link onClick={ClickHandler} href={`/portfolio_details/${project.slug}`}>
+                        {getProjectTitle(project)}
+                      </Link>
+                    )}
                   </h3>
                   <p>
                     {project.description}
@@ -155,12 +161,21 @@ const About = (props) => {
                       <Image src={project.Technologies2} alt="Elephent" />
                     </li>
                   </ul>
-                  <Link onClick={ClickHandler} href={'/portfolio_details/[slug]'} as={`/portfolio_details/${project.slug}`} className="btn btn-primary">
-                    <span className="btn_label" data-text="Read Case">Read Case</span>
-                    <span className="btn_icon">
-                      <i className="fa-solid fa-arrow-up-right"></i>
-                    </span>
-                  </Link>
+                  {project.slug?.startsWith("http") ? (
+                    <a href={project.slug} target="_blank" rel="noopener noreferrer" className="btn btn-primary">
+                      <span className="btn_label" data-text="Read Case">Read Case</span>
+                      <span className="btn_icon">
+                        <i className="fa-solid fa-arrow-up-right"></i>
+                      </span>
+                    </a>
+                  ) : (
+                    <Link onClick={ClickHandler} href={`/portfolio_details/${project.slug}`} className="btn btn-primary">
+                      <span className="btn_label" data-text="Read Case">Read Case</span>
+                      <span className="btn_icon">
+                        <i className="fa-solid fa-arrow-up-right"></i>
+                      </span>
+                    </Link>
+                  )}
                 </div>
               </div>
             ))}

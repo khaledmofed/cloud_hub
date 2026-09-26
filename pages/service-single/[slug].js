@@ -16,14 +16,15 @@ import srImg3 from "/public/images/services/service_details_image_3.webp";
 import srImg4 from "/public/images/services/service_details_image_4.webp";
 import icon from "/public/images/icons/icon_check_3.svg";
 import Image from "next/image";
+import SEO from "../../components/SEO/SEO";
+import { getServiceSchema, getBreadcrumbSchema } from "../../utils/seoSchemas";
 
-const ServiceSinglePage = (props) => {
+const ServiceSinglePage = ({ serviceItem, locale = "ar" }) => {
   const { t } = useTranslation("common");
   const router = useRouter();
 
-  const ServiceDetails = Services.find(
-    (item) => item.slug === router.query.slug
-  );
+  const ServiceDetails =
+    serviceItem || Services.find((item) => item.slug === router.query.slug);
 
   // دالة لترجمة عنوان الخدمة بناءً على slug
   const getServiceTitle = (slug) => {
@@ -145,11 +146,48 @@ const ServiceSinglePage = (props) => {
   };
 
   const serviceContent = getServiceContent(ServiceDetails?.slug);
+  const serviceTitle = ServiceDetails?.slug
+    ? getServiceTitle(ServiceDetails.slug)
+    : ServiceDetails?.title || "";
+  const isAr = locale === "ar";
+  const siteName = isAr ? "محور الحوسبة" : "Cloud Hub";
+
+  const schemas = [
+    getServiceSchema(
+      {
+        title: serviceTitle,
+        description: serviceContent.description1,
+        slug: ServiceDetails?.slug,
+        image: "/images/services/service_details_image_1.webp",
+      },
+      locale
+    ),
+    getBreadcrumbSchema(
+      [
+        { name: isAr ? "الخدمات" : "Services", url: "/service" },
+        { name: serviceTitle, url: `/service-single/${ServiceDetails?.slug}` },
+      ],
+      locale
+    ),
+  ];
 
   const [isOpen, setOpen] = useState(false);
 
   return (
     <Fragment>
+      <SEO
+        title={`${serviceTitle} | ${siteName}`}
+        description={serviceContent.description1}
+        keywords={`${serviceTitle}, ${
+          isAr
+            ? "استضافة سحابية، خدمات رقمية، حوسبة، دعم فني، السعودية"
+            : "cloud hosting, digital services, IT support Saudi Arabia"
+        }`}
+        locale={locale}
+        path={`/service-single/${ServiceDetails?.slug}`}
+        ogImage="/images/services/service_details_image_1.webp"
+        structuredData={schemas}
+      />
       <Header />
       <main className="page_content service-single-page">
         <PageTitle
@@ -242,10 +280,31 @@ const ServiceSinglePage = (props) => {
   );
 };
 
-export async function getServerSideProps({ locale }) {
+export async function getServerSideProps({ params, locale }) {
+  const { slug } = params;
+  const serviceItem = Services.find((item) => item.slug === slug);
+
+  if (!serviceItem) {
+    return {
+      notFound: true,
+    };
+  }
+
+  const serializedService = {
+    Id: serviceItem.Id || null,
+    sImg:
+      serviceItem.sImg?.src ||
+      (typeof serviceItem.sImg === "string" ? serviceItem.sImg : null),
+    title: serviceItem.title || "",
+    slug: serviceItem.slug || "",
+    description: serviceItem.description || "",
+  };
+
   return {
     props: {
-      ...(await serverSideTranslations(locale, ["common"])),
+      serviceItem: serializedService,
+      locale,
+      ...(await serverSideTranslations(locale, ["common", "seo"])),
     },
   };
 }

@@ -16,7 +16,7 @@ const Hero = () => {
   const [searchedDomain, setSearchedDomain] = useState("");
 
   // دالة للتحقق من توفر النطاق
-  // ملاحظة: تحتاج إلى استبدال هذا بـ API حقيقي من secure.ch.net.sa أو أي خدمة WHOIS
+  // ملاحظة: تحتاج إلى استبدال هذا بـ API حقيقي من server.ch.sa أو أي خدمة WHOIS
   const checkDomainAvailability = async (domain) => {
     if (!domain || domain.trim() === "") {
       return;
@@ -27,9 +27,9 @@ const Hero = () => {
     setSearchedDomain(cleanDomain);
 
     try {
-      // خيار 1: إذا كان لديك API من secure.ch.net.sa، استخدمه هنا
+      // خيار 1: إذا كان لديك API من server.ch.sa، استخدمه هنا
       // مثال:
-      // const response = await fetch(`https://secure.ch.net.sa/api/check-domain?domain=${cleanDomain}`);
+      // const response = await fetch(`https://server.ch.sa/api/check-domain?domain=${cleanDomain}`);
       // const data = await response.json();
       // setIsAvailable(data.available);
 
@@ -66,7 +66,7 @@ const Hero = () => {
   };
 
   const handleRegisterClick = () => {
-    const registerUrl = `https://secure.ch.net.sa/cart.php?a=add&domain=register&query=${encodeURIComponent(
+    const registerUrl = `https://server.ch.sa/cart.php?a=add&domain=register&query=${encodeURIComponent(
       searchedDomain
     )}`;
     window.open(registerUrl, "_blank");

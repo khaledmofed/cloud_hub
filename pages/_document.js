@@ -10,10 +10,6 @@ export default class MyDocument extends Document {
     return (
       <Html dir={dir} lang={lang}>
         <Head>
-          <meta
-            name="description"
-            content="Cloud Hub is a comprehensive IT solutions platform delivering web and mobile development, cloud infrastructure, DevOps, systems engineering, hosting, and server management."
-          />
           <link rel="preconnect" href="https://fonts.googleapis.com" />
           <link rel="preconnect" href="https://fonts.gstatic.com" crossOrigin />
           <link
