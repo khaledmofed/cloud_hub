@@ -3,6 +3,8 @@
   "scripts": {
     "dev": "next dev",
     "build": "next build",
+    "postbuild": "node scripts/generate-sitemaps.js",
+    "sitemap": "node scripts/generate-sitemaps.js",
     "start": "next start"
   },
   "dependencies": {
