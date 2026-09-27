@@ -36,12 +36,12 @@ const ContactSection = (props) => {
                   </a>
                 </li>
                 <li>
-                  <a href="mailto:CloudHub@gmail.com">
-                    <span className="icon">
-                      <i className="fa-solid fa-envelope"></i>
-                    </span>
-                    <span className="text">CloudHub@gmail.com</span>
-                  </a>
+                  <span
+                    dangerouslySetInnerHTML={{
+                      __html:
+                        '<!--email_off--><a href="mailto:info@ch.sa"><span class="icon"><i class="fa-solid fa-envelope"></i></span><span class="text">info@ch.sa</span></a><!--/email_off-->',
+                    }}
+                  />
                 </li>
                 <li>
                   <a href="#!">

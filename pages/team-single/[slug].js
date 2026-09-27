@@ -76,15 +76,17 @@ const TeamSinglePage = ({ teamItem, locale = "ar" }) => {
                                         </span>
                                     </li>
                                     <li>
-                                        <span className="icon_list_text">
-                                            <strong>Email:</strong>
-                                            August@example.com
-                                        </span>
+                                        <span
+                                            className="icon_list_text"
+                                            dangerouslySetInnerHTML={{
+                                                __html: `<strong>${isAr ? "البريد الإلكتروني:" : "Email:"}</strong> <!--email_off--><a href="mailto:info@ch.sa" style="color: inherit; text-decoration: none;">info@ch.sa</a><!--/email_off-->`,
+                                            }}
+                                        />
                                     </li>
                                     <li>
                                         <span className="icon_list_text">
-                                            <strong>Phone:</strong>
-                                            +91590 0574 258
+                                            <strong>{isAr ? "الهاتف:" : "Phone:"}</strong>
+                                            {" "}<a href="tel:+966599555526" style={{ color: "inherit", textDecoration: "none" }} className="dir-ltr">+966 59 955 5526</a>
                                         </span>
                                     </li>
                                 </ul>
