@@ -43,7 +43,13 @@ const ContactSection = (props) => {
               </div>
               <div className="iconbox_content">
                 <h3 className="iconbox_title">{t("contactPage.email")}</h3>
-                <p className="mb-0">info@ch.sa</p>
+                <p
+                  className="mb-0"
+                  dangerouslySetInnerHTML={{
+                    __html:
+                      '<!--email_off--><a href="mailto:info@ch.sa" style="color: inherit; text-decoration: none;">info@ch.sa</a><!--/email_off-->',
+                  }}
+                />
               </div>
             </div>
           </div>

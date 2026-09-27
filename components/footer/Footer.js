@@ -69,20 +69,13 @@ const Footer = (props) => {
               </div>
               <div className="iconbox_content">
                 <h3 className="iconbox_title">{t("footer.writeToUs")}</h3>
-                <p className="mb-0">
-                  <Link
-                    href="mailto:info@ch.sa"
-                    style={{
-                      color: "inherit",
-                      textDecoration: "none",
-                      transition: "opacity 0.3s ease",
-                    }}
-                    onMouseEnter={(e) => (e.target.style.opacity = "0.8")}
-                    onMouseLeave={(e) => (e.target.style.opacity = "1")}
-                  >
-                    info@ch.sa
-                  </Link>
-                </p>
+                <p
+                  className="mb-0"
+                  dangerouslySetInnerHTML={{
+                    __html:
+                      '<!--email_off--><a href="mailto:info@ch.sa" style="color: inherit; text-decoration: none;">info@ch.sa</a><!--/email_off-->',
+                  }}
+                />
               </div>
             </div>
             <div className="iconbox_block layout_icon_left">
