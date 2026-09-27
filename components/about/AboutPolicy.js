@@ -23,7 +23,7 @@ const getPolicy = (t) => [
   },
 ];
 
-const PolicySection = (props) => {
+const AboutPolicy = (props) => {
   const { t } = useTranslation("common");
   const Policy = getPolicy(t);
 
@@ -50,4 +50,4 @@ const PolicySection = (props) => {
   );
 };
 
-export default PolicySection;
+export default AboutPolicy;

@@ -40,7 +40,11 @@ const TeamSinglePage = ({ teamItem, locale = "ar" }) => {
         <Fragment>
             <SEO
                 title={`${TeamDetails?.name} - ${TeamDetails?.title} | ${siteName}`}
-                description={`${TeamDetails?.name} - ${TeamDetails?.title} في محور الحوسبة لخدمات تكنولوجيا المعلومات والحوسبة السحابية.`}
+                description={
+                  isAr
+                    ? `تعرف على ${TeamDetails?.name}، ${TeamDetails?.title} ضمن فريق محور الحوسبة المتخصص في حلول الحوسبة السحابية والبنية التحتية الرقمية.`
+                    : `Meet ${TeamDetails?.name}, ${TeamDetails?.title} at Cloud Hub, delivering innovative cloud infrastructure and enterprise IT solutions in Saudi Arabia.`
+                }
                 keywords={`${TeamDetails?.name}, ${TeamDetails?.title}, فريق محور الحوسبة`}
                 locale={locale}
                 path={`/team-single/${TeamDetails?.slug}`}

@@ -9,7 +9,7 @@ import Footer from '../../components/footer/Footer';
 import CtaSection from '../../components/CtaSection/CtaSection';
 import srImg from '/public/images/services/service_image_8.webp' 
 import ServiceSection from '../../components/ServiceSection/ServiceSection';
-import WhyUs from '../about/WhyUs';
+import AboutWhyUs from '../../components/about/AboutWhyUs';
 import Image from 'next/image';
 import SEO from '../../components/SEO/SEO';
 import { getBreadcrumbSchema } from '../../utils/seoSchemas';
@@ -77,7 +77,7 @@ const ServicePage = (props) => {
                 </section>
                 <ServiceSection />
                 <div className="pt-130"></div>
-                <WhyUs />
+                <AboutWhyUs />
             </main>
             <CtaSection />
             <Footer />

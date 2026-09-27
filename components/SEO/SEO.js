@@ -65,11 +65,15 @@ const SEO = ({
         }
       />
 
-      {/* الروابط الأساسية واللغات المتعددة */}
-      <link key="canonical" rel="canonical" href={currentUrl} />
-      <link key="alt-en" rel="alternate" hrefLang="en" href={enUrl} />
-      <link key="alt-ar" rel="alternate" hrefLang="ar" href={arUrl} />
-      <link key="alt-x-default" rel="alternate" hrefLang="x-default" href={enUrl} />
+      {/* الروابط الأساسية واللغات المتعددة (للصفحات المفهرسة فقط) */}
+      {!noIndex && (
+        <>
+          <link key="canonical" rel="canonical" href={currentUrl} />
+          <link key="alt-en" rel="alternate" hrefLang="en" href={enUrl} />
+          <link key="alt-ar" rel="alternate" hrefLang="ar" href={arUrl} />
+          <link key="alt-x-default" rel="alternate" hrefLang="x-default" href={enUrl} />
+        </>
+      )}
 
       {/* وسوم Open Graph لمواقع التواصل الاجتماعي */}
       <meta key="og:site_name" property="og:site_name" content={siteName} />

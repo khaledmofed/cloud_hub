@@ -104,48 +104,26 @@ ${allPages.map(({ path, priority, changefreq }) => {
 }).join('\n')}
 </urlset>`;
 
-// 5. بناء الخريطة الشاملة sitemap.xml
-const combinedXml = `<?xml version="1.0" encoding="UTF-8"?>
-<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-        xmlns:xhtml="http://www.w3.org/1999/xhtml">
-  <!-- الصفحات باللغة العربية -->
-${allPages.map(({ path, priority, changefreq }) => {
-  const enUrl = `${SITE_URL}${path}`;
-  const arUrl = `${SITE_URL}/ar${path}`;
-  return `  <url>
-    <loc>${arUrl}</loc>
-    <xhtml:link rel="alternate" hreflang="ar" href="${arUrl}"/>
-    <xhtml:link rel="alternate" hreflang="en" href="${enUrl}"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="${enUrl}"/>
+// 5. بناء فهرس الخرائط الرئيسي sitemap.xml (Sitemap Index) لمنع تكرار الروابط
+const sitemapIndexXml = `<?xml version="1.0" encoding="UTF-8"?>
+<sitemapindex xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <sitemap>
+    <loc>${SITE_URL}/sitemap-ar.xml</loc>
     <lastmod>${currentDate}</lastmod>
-    <changefreq>${changefreq}</changefreq>
-    <priority>${priority}</priority>
-  </url>`;
-}).join('\n')}
-
-  <!-- الصفحات باللغة الإنجليزية -->
-${allPages.map(({ path, priority, changefreq }) => {
-  const enUrl = `${SITE_URL}${path}`;
-  const arUrl = `${SITE_URL}/ar${path}`;
-  return `  <url>
-    <loc>${enUrl}</loc>
-    <xhtml:link rel="alternate" hreflang="en" href="${enUrl}"/>
-    <xhtml:link rel="alternate" hreflang="ar" href="${arUrl}"/>
-    <xhtml:link rel="alternate" hreflang="x-default" href="${enUrl}"/>
+  </sitemap>
+  <sitemap>
+    <loc>${SITE_URL}/sitemap-en.xml</loc>
     <lastmod>${currentDate}</lastmod>
-    <changefreq>${changefreq}</changefreq>
-    <priority>${priority}</priority>
-  </url>`;
-}).join('\n')}
-</urlset>`;
+  </sitemap>
+</sitemapindex>`;
 
 // الحفظ في مجلد public
 const publicDir = path.join(__dirname, '../public');
-fs.writeFileSync(path.join(publicDir, 'sitemap.xml'), combinedXml, 'utf8');
+fs.writeFileSync(path.join(publicDir, 'sitemap.xml'), sitemapIndexXml, 'utf8');
 fs.writeFileSync(path.join(publicDir, 'sitemap-ar.xml'), arabicXml, 'utf8');
 fs.writeFileSync(path.join(publicDir, 'sitemap-en.xml'), englishXml, 'utf8');
 
 console.log('✅ Generated sitemaps successfully in public/:');
-console.log(` - public/sitemap.xml (${allPages.length * 2} URLs)`);
+console.log(` - public/sitemap.xml (Sitemap Index pointing to sub-sitemaps)`);
 console.log(` - public/sitemap-ar.xml (${allPages.length} Arabic URLs)`);
 console.log(` - public/sitemap-en.xml (${allPages.length} English URLs)`);

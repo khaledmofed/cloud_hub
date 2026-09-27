@@ -22,7 +22,7 @@ const ServiceSection = (props) => {
       "Data-Tracking-and-Security": t("serviceItems.dataTracking"),
       "Modern-Technology-Solution": t("serviceItems.modernTech"),
       "UI-UX-Design-Services": t("serviceItems.uiuxDesign"),
-      "Custom Software Development": t("serviceItems.customSoftware"),
+      "Custom-Software-Development": t("serviceItems.customSoftware"),
     };
     return titleMap[slug] || slug;
   };

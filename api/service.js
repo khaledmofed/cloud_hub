@@ -79,7 +79,7 @@ const Services = [
     Id: "6",
     sImg: icon1,
     title: "Custom Software Development",
-    slug: "Custom Software Development",
+    slug: "Custom-Software-Development",
     features: [
       "Software architecture design",
       "System integration services",
@@ -91,7 +91,7 @@ const Services = [
     Id: "7",
     sImg: icon2,
     title: "Audit & IT Consulting Services",
-    slug: "Audit-&-IT-Consulting-Services",
+    slug: "Audit-and-IT-Consulting-Services",
     features: [
       "TechGuard Audit",
       "CyberSafe Audit & IT Consulting",
@@ -127,7 +127,7 @@ const Services = [
     Id: "10",
     sImg: icon5,
     title: "Best UI/UX Design Services",
-    slug: "Best-UI/UX-Design-Services",
+    slug: "Best-UI-UX-Design-Services",
     features: [
       "PixelPerfection UI/UX Design",
       "DesignCraft UI/UX Design",

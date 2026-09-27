@@ -61,7 +61,7 @@ const blogs = [
     {
         id: '4',
         title: 'How Our Software Solutions Drive Insights.',
-        slug: 'How-Our-Software-Solutions-Drive-Insights.',
+        slug: 'How-Our-Software-Solutions-Drive-Insights',
         screens: blogImg4,
         bSingle: blogsImg4,
         description: 'Student visa consulting agencies are equipped with professionals who specialize in the intricacies of visa applications.',
@@ -74,7 +74,7 @@ const blogs = [
     {
         id: '5',
         title: 'Exploring Emerging Trends in Software Development.',
-        slug: 'Exploring-Emerging-Trends-in-Software-Development.',
+        slug: 'Exploring-Emerging-Trends-in-Software-Development',
         screens: blogImg5,
         bSingle: blogsImg4,
         description: 'The realm of visa applications is a and ever-changing landscape...',
@@ -87,7 +87,7 @@ const blogs = [
     {
         id: '6',
         title: 'How Software Integration Can Improve Workflow.',
-        slug: 'How-Software-Integration-Can-Improve-Workflow.',
+        slug: 'How-Software-Integration-Can-Improve-Workflow',
         screens: blogImg6,
         bSingle: blogsImg4,
         description: 'Embarking on a journey to study abroad is an aspiration many students..',

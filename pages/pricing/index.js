@@ -7,7 +7,7 @@ import Scrollbar from "../../components/scrollbar/scrollbar";
 import Footer from "../../components/footer/Footer";
 import ModalVideo from "react-modal-video";
 import CtaSection from "../../components/CtaSection/CtaSection";
-import PolicySection from "./Policy";
+import PricingPolicy from "../../components/pricing/PricingPolicy";
 import PricingSection from "../../components/PricingSection/PricingSection";
 import PartnerSectionWrapper from "../../components/PartnerSectionWrapper/PartnerSectionWrapper";
 import SEO from "../../components/SEO/SEO";
@@ -43,7 +43,7 @@ const PricingPage = (props) => {
           pagesub={t("pricingPage.pricing")}
           pageTop={t("pricingPage.our")}
         />
-        <PolicySection />
+        <PricingPolicy />
         <PricingSection />
         <PartnerSectionWrapper />
       </main>

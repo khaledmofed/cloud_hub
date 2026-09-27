@@ -6,10 +6,9 @@ import PageTitle from "../../components/pagetitle/PageTitle";
 import Scrollbar from "../../components/scrollbar/scrollbar";
 import Footer from "../../components/footer/Footer";
 import aImg from "/public/images/about/about_image_3.webp";
-import aImg2 from "/public/images/about/about_image_4.webp";
 import ModalVideo from "react-modal-video";
-import PolicySection from "./Policy";
-import WhyUs from "./WhyUs";
+import AboutPolicy from "../../components/about/AboutPolicy";
+import AboutWhyUs from "../../components/about/AboutWhyUs";
 import FeaturesSection from "../../components/FeaturesSection/FeaturesSection";
 import TeamSection from "../../components/TeamSection/TeamSection";
 import CtaSection from "../../components/CtaSection/CtaSection";
@@ -95,10 +94,10 @@ const AboutUsPage = (props) => {
             </div>
           </div>
         </section>
-        <PolicySection />
+        <AboutPolicy />
         {/* <FeaturesSection /> */}
         {/* <TeamSection /> */}
-        <WhyUs />
+        <AboutWhyUs />
         <CtaSection />
       </main>
       <Footer />

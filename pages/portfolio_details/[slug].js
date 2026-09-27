@@ -136,8 +136,8 @@ const PortfolioSinglePage = ({ projectItem, locale = "ar" }) => {
         description={
           PortfolioDetails?.description ||
           (isAr
-            ? `مشروع ${projectTitle} المنفذ بواسطة محور الحوسبة لأحدث حلول تكنولوجيا المعلومات والخدمات السحابية.`
-            : `Project ${projectTitle} delivered by Cloud Hub IT & Cloud Solutions.`)
+            ? `استكشف تفاصيل مشروع ${projectTitle} المنفذ باحترافية عبر محور الحوسبة الرائدة في حلول تقنية المعلومات والاستضافة السحابية بالسعودية.`
+            : `Explore project ${projectTitle} expertly engineered and delivered by Cloud Hub, your premier IT solutions and cloud infrastructure partner in Saudi Arabia.`)
         }
         keywords={`${projectTitle}, ${
           isAr

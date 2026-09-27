@@ -8,5 +8,3 @@ Host: https://ch.sa
 
 # Sitemaps
 Sitemap: https://ch.sa/sitemap.xml
-Sitemap: https://ch.sa/sitemap-ar.xml
-Sitemap: https://ch.sa/sitemap-en.xml
